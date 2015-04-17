@@ -77,7 +77,7 @@ root.Admin = function Admin(admin, options) {
     // security
     this.security = false;
     this.role = 'admin';
-    this.permit = [];
+    this.permit = ['insert', 'update', 'remove'];
 
     // EXTEND OBJECT
     _.extend(this, admin);

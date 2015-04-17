@@ -22,5 +22,6 @@ Posts.attachSchema(new SimpleSchema({
 
 Posts.attachAdmin(new Admin({
   name: 'Posts',
-  list_display: ['title']
+  list_display: ['title'],
+  security: true // insert, remove, update role in admin.
 }));

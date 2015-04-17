@@ -8,7 +8,7 @@ Categories.attachSchema(new SimpleSchema({
   }
 }));
 
-
 Categories.attachAdmin(new Admin({
-  name: 'Categories'
+  name: 'Categories',
+  security: true // insert, remove, update role in admin.
 }));
