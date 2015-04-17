@@ -1,0 +1,59 @@
+body { padding:0px; margin:0px; }
+#AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; }
+#AdminHeader { height:50px; background-color:#333; }
+#AdminMain { }
+
+#AdminSiteName a, #AdminNav li a { line-height: 50px; padding:0 10px 0 10px; display:block; }
+
+.admin-cf:after{ clear: both; content: "."; display: block; height: 0; visibility: hidden; font-size: 0; }
+
+#AdminLayout .admin-list-table a { text-decoration:none; color:#1793C0; }
+#AdminLayout .admin-list-table a:hover { text-decoration:underline; }
+
+#AdminNav { list-style:none; padding:0px; margin:0px; }
+#AdminNav li { float:left; }
+#AdminNav li a, .adminPath { color:white; text-decoration:none; font-size:20px; }
+#AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover, .btn:hover { background-color:#000; }
+
+.left { float:left; }
+.right { float:right; }
+
+.mt5 { margin-top:5px!important; }
+.mt10 { margin-top:10px!important; }
+.mt20 { margin-top:20px!important; }
+.mt30 { margin-top:30px!important; }
+.mt40 { margin-top:40px!important; }
+.yet { color:#ccc; }
+
+.admin-wrapper { width:980px; margin:auto; }
+#AdminSiteName { float:left; }
+#AdminSiteName a { color:#f4f379; font-size:18px; font-weight: normal; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+.admin-list-table { margin: 10px auto; font-size: 1.2em; margin-bottom: 15px; width:100%; }
+.admin-list-table thead { cursor: pointer; background: #333; }
+.admin-list-table thead tr th { font-weight: bold; padding: 12px 30px; padding-left: 42px; }
+.admin-list-table thead tr th:hover { background-color:#000; }
+.admin-list-table thead tr th span { padding-right: 20px; background-repeat: no-repeat; background-position: 100% 100%; color:#fff; }
+.admin-list-table thead tr th.headerSortUp, .admin-list-table thead tr th.headerSortDown { background: #acc8dd; }
+.admin-list-table tbody tr { color: #555; }
+.admin-list-table tbody tr:hover { background-color:#F9F9F9; }
+.admin-list-table tbody tr td { text-align: center; padding: 15px 10px; }
+.admin-list-table tbody tr td.lalign { text-align: left; }
+#adminLoginRequired { text-align: center; font-size: 30px; font-weight: bold; }
+
+#AdminListOptions { }
+.admin-button, .btn { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
+
+/* FORMS STYLES */
+form { }
+form input, form textarea, form select { border: 1px solid #ccc; outline: none; width:100%; padding:10px; font-size:17px; resize:none; }
+form textarea { min-height:100px; }
+form label { display:block; margin:10px 0 10px 0; }
+form input[type='checkbox'] { width:15px; }
+form .help-block { margin-top: 10px; display: block; color: rgb(173, 55, 55); }
+form button { margin:20px 0 20px 0; outline:none; }
+
+.fa-check-circle { color:#CCC; }
+.fa-check-circle.true { color:#0BF; }

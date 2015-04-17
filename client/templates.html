@@ -1,0 +1,92 @@
+<template name="adminLayoutSafe"></template>
+<template name="adminLayout">
+    <div id="AdminLayout">
+        <div id="AdminHeader">
+            <div class="admin-wrapper">
+                {{ > adminHeader }}
+            </div>
+        </div>
+        <div id="AdminMain">
+            <div class="admin-wrapper mt30">
+                {{ > yield }}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="adminHeader">
+    <div id="AdminSiteName">
+        <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActivePath regex='admin$' }}">Meteor Admin</a>
+    </div>
+    {{#if isInRole 'admin'}}
+        <ul id="AdminNav">
+            {{# each collections }}
+                <li>
+                    <a href="{{ pathFor route='AdminCollection' }}" class="{{ isActivePath regex=name }}">{{ name }}</a>
+                </li>
+            {{/each}}
+        </ul>
+    {{/if}}
+</template>
+
+<template name="adminLoginRequired">
+    <div id="adminLoginRequired">
+        Not is in Role Admin!
+    </div>
+</template>
+
+<template name="adminDashboard">
+    adminDashBoard
+</template>
+
+<template name="adminCollection">
+    <div id="AdminListOptions" class="admin-cf">
+        <div class="right">
+            <a href="{{ pathFor route='AdminCollectionInsert' name=admin._name }}" class="admin-button">New {{ admin._name }}</a>
+        </div>
+    </div>
+    <table class="admin-list-table">
+        <thead>
+            <tr>
+                {{# each admin.fields }}
+                    <th><span>{{ name }}</span></th>
+                {{/each}}
+            </tr>
+        </thead>
+        <tbody>
+            {{# each collection }}
+                <tr>
+                    {{# each setIndex ../admin.fields }}
+                    <td>
+                        {{# if isBoolean }}
+                          <i class="fa fa-check-circle {{ getValue .. }}"></i>
+                        {{ else }}
+                          {{# if first }}
+                            <a href="{{ pathFor route="AdminCollectionUpdate" name=../../admin._name _id=../_id }}">{{ getValue .. }}</a>
+                          {{ else }}
+                            {{ getValue .. }}
+                          {{/if}}
+                        {{/if}}
+                    </td>
+                    {{/each}}
+                </tr>
+            {{ else }}
+              <tr><td colspan="{{ admin.fields.length }}" class="yet">no {{ admin._name }}</td></tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>
+
+<template name="adminCollectionInsert">
+    <h3>New {{ admin._name }}</h3>
+    {{> quickForm collection=admin.name id="insertForm" type="insert" }}
+</template>
+
+<template name="adminCollectionUpdate">
+    <h3>Update {{ admin._name }}</h3>
+    {{> quickForm collection=admin.name id="updateForm" type="update" doc=doc }}
+</template>
+
+<template name="adminLoading">
+    Admin loading..
+</template>

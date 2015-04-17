@@ -1,0 +1,17 @@
+<head>
+  <title>example</title>
+</head>
+
+<template name="layout">
+  {{ > yield }}
+</template>
+
+<template name="home">
+  {{ > loginButtons }}
+
+  {{# each posts }}
+    <h1>{{ title }}</h1>
+    <div>{{{ content }}}</div>
+    <hr/>
+  {{/each}}
+</template>

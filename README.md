@@ -1,2 +1,2 @@
-# meteor-admin
-Meteor application basic admin.
+Meteor Admin
+======
