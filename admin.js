@@ -1,11 +1,21 @@
+ // Establish the root object, `window` in the browser, or `exports` on the server.
 var root = this;
 
+// defined on an method belong to it.
+defineServer = function(name, fn) {
+  if (Meteor.isServer) {
+    root[name] = fn;
+  }
+};
+
+// Returned Collections instance _admin.
 root.Collections = function() {
   return _.filter(Mongo.Collection.getAll(), function(doc) {
       return _.has(doc.instance, '_admin');
   });
 };
 
+// all subscriptions Collections list.
 root.allSubscriptions = function() {
   var out = [],
       subscriptions = _.map(Collections(), function(coll) {
@@ -28,6 +38,15 @@ root.cleanSort = function(sort) {
   });
   return out;
 };
+
+defineServer('createAdminUser', function(email, password) {
+  var userId = Accounts.createUser({ email: email, password: password });
+
+  // add roles
+  if (userId) {
+    Roles.addUsersToRoles(userId, ['admin']);
+  }
+});
 
 root.AdminIronRouterUtils = {
   layoutTemplate: 'adminLayout',
@@ -55,17 +74,10 @@ root.AdminIronRouterUtils = {
     };
   },
   onBeforeAction: function() {
-    var collection = Mongo.Collection.get(this.params.name);
-
     if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
       return this.next();
     }
-
-    if (!collection) {
-      return this.render('adminUndefinedCollection');
-    }
-
-    return this.render('adminLoginRequired');
+    return this.render('adminWarningPage');
   }
 };
 
@@ -88,6 +100,10 @@ root.Admin = function Admin(admin, options) {
   _.extend(this, admin);
 };
 
+/*
+ * Mongo.Collection.prototype.attachAdmin
+ * Admin object passed to its constructor.
+ * */
 Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var self = this,
       simpleSchema = self.simpleSchema(),

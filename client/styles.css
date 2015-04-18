@@ -60,5 +60,7 @@ form button { margin:20px 0 20px 0; outline:none; }
 .fa-check-circle { color:#CCC; }
 .fa-check-circle.true { color:#0BF; }
 
+#adminWarningPage { background-color: rgb(165, 44, 44); color: white; padding: 25px; font-size: 25px; }
+
 .adminSaveButton { }
 .adminRemoveButton { background-color:rgb(144, 24, 24); }
