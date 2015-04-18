@@ -50,3 +50,8 @@ Books.attachAdmin(new Admin({
 }));
 ```
 
+#### /admin list books
+![books](http://i.imgur.com/5fpi8Nn.png)
+
+#### /admin update book
+![books](http://i.imgur.com/2wRgXjh.png)
