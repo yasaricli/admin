@@ -1,8 +1,8 @@
 Package.describe({
-    name: 'yasaricli:admin',
+    name: 'yasaricli:metadmin',
     version: '0.0.1',
     summary: 'Meteorjs is the automatic admin interface.',
-    git: 'https://github.com/yasaricli/admin.git',
+    git: 'https://github.com/yasaricli/metadmin.git',
     documentation: 'README.md'
 });
 
@@ -30,7 +30,7 @@ Package.onUse(function(api) {
     ];
 
     // ADMIN BASE FILE
-    api.addFiles('admin.js');
+    api.addFiles('metadmin.js');
 
     // CLIENT AND SERVER FILES ADD FILES
     api.addFiles(clientFiles, 'client');
