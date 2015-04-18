@@ -57,12 +57,12 @@ root.AdminIronRouterUtils = {
   onBeforeAction: function() {
     var collection = Mongo.Collection.get(this.params.name);
 
-    if (!collection) {
-      return this.render('adminUndefinedCollection');
-    }
-
     if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
       return this.next();
+    }
+
+    if (!collection) {
+      return this.render('adminUndefinedCollection');
     }
 
     return this.render('adminLoginRequired');
