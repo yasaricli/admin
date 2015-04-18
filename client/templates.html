@@ -71,14 +71,31 @@
   adminDashBoard
 </template>
 
+<template name="adminButtons">
+  <button type="submit" class="btn btn-primary mr5 left adminSaveButton">{{ saveButtonText }}</button>
+  {{# if removeButtonText }}
+    <button type="submit" class="btn btn-danger mr5 left adminRemoveButton">{{ removeButtonText }}</button>
+  {{/if}}
+</template>
+
 <template name="adminCollectionInsert">
   <h3>New {{ admin._name }}</h3>
-  {{> quickForm collection=admin.name id="insertForm" type="insert" }}
+  {{# autoForm collection=admin.name id="insertForm" type="insert" }}
+    {{# each afFieldNames }}
+      {{> afQuickField name=this }}
+    {{/each }}
+    {{ > adminButtons saveButtonText="Insert" }}
+  {{/autoForm}}
 </template>
 
 <template name="adminCollectionUpdate">
   <h3>Update {{ admin._name }}</h3>
-  {{> quickForm collection=admin.name id="updateForm" type="update" doc=doc }}
+  {{# autoForm collection=admin.name id="insertForm" type="update" doc=doc}}
+    {{# each afFieldNames }}
+      {{> afQuickField name=this }}
+    {{/each }}
+    {{ > adminButtons saveButtonText="Save" removeButtonText="Remove" doc=doc admin=admin }}
+  {{/autoForm}}
 </template>
 
 <template name="adminLoginRequired">

@@ -23,3 +23,8 @@ Template.adminCollection.helpers({
     });
   }
 });
+
+
+UI.registerHelper('console', function(c) {
+  console.log(c);
+});
