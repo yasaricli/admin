@@ -1,11 +1,11 @@
-Meteor Admin
+metadmin 
 ======
 
 ## Quick Start
-You can install yasaricli:admin using Meteor's package management system:
+You can install yasaricli:metadmin using Meteor's package management system:
 
 ```bash
-> meteor add yasaricli:admin
+> meteor add yasaricli:metadmin
 ```
 
 ### Admin Specific Options
