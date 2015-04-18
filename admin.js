@@ -55,11 +55,17 @@ root.AdminIronRouterUtils = {
     };
   },
   onBeforeAction: function() {
-    if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
-      this.next();
-    } else {
-      this.render('adminLoginRequired');
+    var collection = Mongo.Collection.get(this.params.name);
+
+    if (!collection) {
+      return this.render('adminUndefinedCollection');
     }
+
+    if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
+      return this.next();
+    }
+
+    return this.render('adminLoginRequired');
   }
 };
 

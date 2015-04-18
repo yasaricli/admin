@@ -29,16 +29,6 @@
   {{/if}}
 </template>
 
-<template name="adminLoginRequired">
-  <div id="adminLoginRequired">
-    Not is in Role Admin!
-  </div>
-</template>
-
-<template name="adminDashboard">
-  adminDashBoard
-</template>
-
 <template name="adminCollection">
   <div id="AdminListOptions" class="admin-cf">
     <div class="right">
@@ -77,6 +67,10 @@
   </table>
 </template>
 
+<template name="adminDashboard">
+  adminDashBoard
+</template>
+
 <template name="adminCollectionInsert">
   <h3>New {{ admin._name }}</h3>
   {{> quickForm collection=admin.name id="insertForm" type="insert" }}
@@ -85,6 +79,18 @@
 <template name="adminCollectionUpdate">
   <h3>Update {{ admin._name }}</h3>
   {{> quickForm collection=admin.name id="updateForm" type="update" doc=doc }}
+</template>
+
+<template name="adminLoginRequired">
+  <div id="adminLoginRequired">
+    Not is in Role Admin!
+  </div>
+</template>
+
+<template name="adminUndefinedCollection">
+  <div id="adminUndefinedCollection">
+    Collection not found.
+  </div>
 </template>
 
 <template name="adminLoading">

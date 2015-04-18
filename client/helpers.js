@@ -11,6 +11,8 @@ Template.adminCollection.helpers({
   isBoolean: function() {
     return this.type == 'Boolean';
   },
+
+  // XXX: Meteor next version @index @first @last
   setIndex: function(list) {
     return _.map(list, function(doc, index) {
       return _.extend({
