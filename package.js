@@ -26,7 +26,8 @@ Package.onUse(function(api) {
 
     // SERVER FILES
     serverFiles = [
-      'server/publications.js'
+      'server/publications.js',
+      'server/migrations.js'
     ];
 
     // ADMIN BASE FILE
@@ -52,4 +53,5 @@ Package.onUse(function(api) {
     api.use('aldeed:autoform@4.2.2 || 5.0.0', clientAndServer);
     api.use('alanning:roles@1.2.13', clientAndServer);
     api.use('ongoworks:security@1.1.0', clientAndServer);
+    api.use('idmontie:migrations@1.0.0', clientAndServer)
 });
