@@ -44,8 +44,8 @@ Books.attachSchema(new SimpleSchema({
 
 Books.attachAdmin(new Admin({
     name: 'Books',
-    list_display: ['title', 'author'],
-    sort: ['-lastCheckedOut'],
+    list_display: ['title', 'author', 'copies'],
+    sort: ['-copies'],
     security: true,
     list_per_page: 5
 }));
