@@ -8,7 +8,6 @@ Books.attachSchema(new SimpleSchema({
     summary: { type: String, label: "Brief summary", optional: true, max: 1000 }
 }));
 
-
 Books.attachAdmin(new Admin({
     name: 'Books',
     list_display: ['title', 'author', 'copies'],

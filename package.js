@@ -1,7 +1,7 @@
 Package.describe({
     name: 'yasaricli:metadmin',
     version: '0.0.1',
-    summary: 'Meteorjs is the automatic admin interface.',
+    summary: 'Meteorjs is the basic admin interface.',
     git: 'https://github.com/yasaricli/metadmin.git',
     documentation: 'README.md'
 });

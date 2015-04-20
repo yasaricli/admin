@@ -8,9 +8,13 @@
 
 <template name="home">
   {{ > loginButtons }}
-
   {{# each posts }}
     <h1>{{ title }}</h1>
+    <ul id="Tags">
+      {{# each tags }}
+        <li>{{ name }}</li>
+      {{/each}}
+    </ul>
     <div>{{{ content }}}</div>
     <hr/>
   {{/each}}

@@ -18,7 +18,7 @@ Posts.attachSchema(new SimpleSchema({
     }
   },
 
-  tags: {
+  tagIds: {
     type: [String],
     label: 'Select Tags',
     optional: true,
@@ -41,3 +41,10 @@ Posts.attachAdmin(new Admin({
     tags: {}
   }
 }));
+
+
+Posts.helpers({
+  tags: function() {
+    return Tags.find({ _id: { $in: this.tagIds } });
+  }
+});

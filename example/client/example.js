@@ -3,14 +3,14 @@ Router.configure({
 });
 
 Router.route('/', {
-  name: 'Home'
+  name: 'Home',
+  waitOn: function() {
+    return Meteor.subscribe('posts');
+  }
 });
 
 Template.home.helpers({
   posts: function() {
-    return Posts.find();
-  },
-  categories: function() {
-    return Categories.find();
+    return Posts.find({ });
   }
 });
