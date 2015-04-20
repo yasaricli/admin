@@ -7,14 +7,12 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-    var clientAndServer = ['client', 'server'],
-        clientFiles, serverFiles, packages;
-
-    // METEOR VERSION
     api.versionsFrom('1.1');
 
-    // CLIENT FILES
-    clientFiles = [
+    // Utils and base js
+    api.addFiles('metadmin.js');
+
+    api.addFiles([
       'client/templates.html',
       'client/styles.css',
       'client/autoform.js',
@@ -22,36 +20,32 @@ Package.onUse(function(api) {
       'client/events.js',
       'client/helpers.js',
       'client/routers.js'
-    ];
+    ], 'client');
 
-    // SERVER FILES
-    serverFiles = [
+    api.addFiles([
       'server/publications.js',
       'server/migrations.js'
-    ];
-
-    // ADMIN BASE FILE
-    api.addFiles('metadmin.js');
-
-    // CLIENT AND SERVER FILES ADD FILES
-    api.addFiles(clientFiles, 'client');
-    api.addFiles(serverFiles, 'server');
+    ], 'server');
 
     // Meteor-provided packages
-    api.use('accounts-base@1.2.0', clientAndServer);
-    api.use('accounts-password@1.1.1', clientAndServer);
-    api.use('mongo@1.1.0', clientAndServer);
-    api.use('underscore@1.0.3', clientAndServer);
-    api.use('templating@1.1.1', 'client');
+    api.use([
+      'accounts-base',
+      'accounts-password',
+      'mongo',
+      'underscore',
+      'templating'
+    ], ['client', 'server']);
 
-    // Meteor-provided packages
-    api.use('iron:router@1.0.7', 'client');
-    api.use('zimme:iron-router-active@1.0.4', 'client');
-    api.use('fortawesome:fontawesome@4.3.0', 'client');
-    api.use('dburles:mongo-collection-instances@0.3.3', clientAndServer);
-    api.use('aldeed:collection2@2.3.3', clientAndServer);
-    api.use('aldeed:autoform@4.2.2 || 5.0.0', clientAndServer);
-    api.use('alanning:roles@1.2.13', clientAndServer);
-    api.use('ongoworks:security@1.1.0', clientAndServer);
-    api.use('idmontie:migrations@1.0.0', clientAndServer)
+    // Third-party package dependencies
+    api.use([
+      'iron:router@1.0.7',
+      'zimme:iron-router-active@1.0.4',
+      'fortawesome:fontawesome@4.3.0',
+      'dburles:mongo-collection-instances@0.3.3',
+      'aldeed:collection2@2.3.3',
+      'aldeed:autoform@4.2.2 || 5.0.0',
+      'alanning:roles@1.2.13',
+      'ongoworks:security@1.1.0',
+      'idmontie:migrations@1.0.0'
+    ]);
 });

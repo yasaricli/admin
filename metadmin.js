@@ -48,7 +48,7 @@ defineServer('createAdminUser', function(email, password) {
   }
 });
 
-root.AdminIronRouterUtils = {
+root.AdminIronRouter = {
   layoutTemplate: 'adminLayout',
   loadingTemplate: 'adminLoading',
   waitOn: function() {

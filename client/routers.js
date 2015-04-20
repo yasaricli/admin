@@ -1,19 +1,16 @@
+// DASHBOARD ROUTE
 Router.route('/admin', _.extend({
-    layoutTemplate: 'adminLayout',
     name: 'AdminDashboard',
     waitOn: function() {
         return allSubscriptions();
     }
-}, _.pick(AdminIronRouterUtils, ['onBeforeAction'])));
+}, _.pick(AdminIronRouter, ['onBeforeAction', 'layoutTemplate'])));
 
-Router.route('/admin/:name', _.extend({
-    name: 'AdminCollection'
-}, AdminIronRouterUtils));
+// COLLECTION ROUTE
+Router.route('/admin/:name', _.extend({ name: 'AdminCollection' }, AdminIronRouter));
 
-Router.route('/admin/:name/insert', _.extend({
-    name: 'AdminCollectionInsert'
-}, AdminIronRouterUtils));
+// INSERT ROUTE
+Router.route('/admin/:name/insert', _.extend({ name: 'AdminCollectionInsert' }, AdminIronRouter));
 
-Router.route('/admin/:name/update/:_id', _.extend({
-    name: 'AdminCollectionUpdate'
-}, AdminIronRouterUtils));
+// UPDATE ROUTE
+Router.route('/admin/:name/update/:_id', _.extend({ name: 'AdminCollectionUpdate' }, AdminIronRouter));
