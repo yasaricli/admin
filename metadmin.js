@@ -39,6 +39,25 @@ root.cleanSort = function(sort) {
   return out;
 };
 
+root.Pagination = function(cursor, perPage) {
+  this.cursor = cursor.fetch();
+  this.perPage = perPage;
+
+  this.collection = function(currentPage) {
+    var currentPage = currentPage || 1;
+    return this.cursor.slice((currentPage - 1) * this.perPage, currentPage * this.perPage);
+  };
+
+  this.totalPages = function() {
+    var remainder = (this.cursor.length / perPage % 1),
+        totalPages;
+    if (remainder !== 0) {
+      return (this.cursor.length / perPage - remainder + 1);
+    }
+    return (this.cursor.length / perPage);
+  };
+};
+
 defineServer('createAdminUser', function(email, password) {
   var userId = Accounts.createUser({ email: email, password: password });
 
@@ -60,16 +79,24 @@ root.AdminIronRouter = {
   },
   data: function() {
     var params = this.params,
-        collection = Mongo.Collection.get(params.name);
+        collection = Mongo.Collection.get(params.name),
+        cursor = collection.find(params.query, { sort: collection._admin.sort }),
+        pagination = new Pagination(cursor, collection._admin.perPage);
     return {
+      params: function() {
+        return params;
+      },
       admin: function() {
         return collection._admin;
       },
       doc: function() {
         return collection.findOne(params._id);
       },
+      pagination: function() {
+        return pagination;
+      },
       collection: function() {
-        return collection.find(params.query, { sort: this.admin().sort });
+        return pagination.collection(params.page);
       }
     };
   },
@@ -90,6 +117,9 @@ root.Admin = function Admin(admin, options) {
 
   this.sort = {};
   this.subscriptions = {};
+
+  // Pagination
+  this.list_per_page = 10;
 
   // security
   this.security = false;
@@ -125,6 +155,9 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
 
   // sort
   _admin.sort = cleanSort(options.sort);
+
+  // pagination list_per_page
+  _admin.perPage = options.list_per_page;
 
   // Fields
   _admin.fields = _.map(schema, function(doc, key, list) {

@@ -65,6 +65,7 @@
       {{/each}}
     </tbody>
   </table>
+  {{ > adminPagination }}
 </template>
 
 <template name="adminDashboard">
@@ -96,6 +97,18 @@
     {{/each }}
     {{ > adminButtons saveButtonText="Save" removeButtonText="Remove" doc=doc admin=admin }}
   {{/autoForm}}
+</template>
+
+<template name="adminPagination">
+  <ul id="AdminPagination" class="admin-cf">
+    {{# each pages }}
+      <li>
+        <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if pageIs ../params.page }}current{{/if}}">
+          {{ page }}
+        </a>
+      </li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="adminWarningPage">

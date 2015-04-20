@@ -9,6 +9,9 @@ Router.route('/admin', _.extend({
 // COLLECTION ROUTE
 Router.route('/admin/:name', _.extend({ name: 'AdminCollection' }, AdminIronRouter));
 
+// COLLECTION PAGINATION
+Router.route('/admin/:name/page/:page', _.extend({ name: 'AdminCollectionPagination', template: 'adminCollection' }, AdminIronRouter));
+
 // INSERT ROUTE
 Router.route('/admin/:name/insert', _.extend({ name: 'AdminCollectionInsert' }, AdminIronRouter));
 

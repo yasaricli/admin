@@ -24,7 +24,13 @@ Template.adminCollection.helpers({
   }
 });
 
-
-UI.registerHelper('console', function(c) {
-  console.log(c);
+Template.adminPagination.helpers({
+  pages: function() {
+    return _.times(this.pagination().totalPages(), function(i) {
+      return { page: ++i };
+    });
+  },
+  pageIs: function(page) {
+    return this.page == (page || 1);
+  }
 });
