@@ -100,15 +100,17 @@
 </template>
 
 <template name="adminPagination">
-  <ul id="AdminPagination" class="admin-cf">
-    {{# each pages }}
-      <li>
-        <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if pageIs ../params.page }}current{{/if}}">
-          {{ page }}
-        </a>
-      </li>
-    {{/each}}
-  </ul>
+  {{# if collection }}
+    <ul id="AdminPagination" class="admin-cf">
+      {{# each pages }}
+        <li>
+          <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if pageIs ../params.page }}current{{/if}}">
+            {{ page }}
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
 </template>
 
 <template name="adminWarningPage">

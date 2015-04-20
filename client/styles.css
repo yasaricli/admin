@@ -64,7 +64,7 @@ form button { margin:20px 0 20px 0; outline:none; }
 .adminSaveButton { }
 .adminRemoveButton { background-color:rgb(144, 24, 24); }
 
-#AdminPagination { list-style:none; padding:0px; margin-top: 40px; border-top: 1px solid #ccc; padding-top: 10px; }
+#AdminPagination { list-style:none; padding:0px; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px; }
 #AdminPagination li { float:left; }
 #AdminPagination li a { display:block; background-color:#333; color:white; text-decoration:none; padding:15px; margin-right:2px; }
 #AdminPagination li a:hover, #AdminPagination li a.current { background-color:#000; }
