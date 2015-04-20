@@ -1,8 +1,10 @@
-## Master
-
-## v0.0.1
-
+### v.NEXT
 * Dashboard display
+
+### v0.0.1.1
+* Dashboard `allSubscriptions`
+
+### v0.0.1
 * **İnsert**, **Update**, **Remove** Docs.
 * Pagination
 * Subscriptions
