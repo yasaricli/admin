@@ -52,7 +52,7 @@ Books.attachAdmin(new Admin({
 ```
 
 #### /admin list books
-![books](http://i.imgur.com/5fpi8Nn.png)
+![books](http://i.imgur.com/zrugzOT.png)
 
 #### /admin update book
-![books](http://i.imgur.com/2wRgXjh.png)
+![books](http://i.imgur.com/Ro9Amsh.png)
