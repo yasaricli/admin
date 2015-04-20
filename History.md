@@ -1,10 +1,10 @@
-### v.NEXT
+### NEXT
 * Dashboard display
 
-### v0.0.1.1
+### 0.0.2
 * Dashboard `allSubscriptions` fixed.
 
-### v0.0.1
+### 0.0.1
 * **İnsert**, **Update**, **Remove** Docs.
 * Pagination
 * Subscriptions
