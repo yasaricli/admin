@@ -1,9 +1,9 @@
 // DASHBOARD ROUTE
 Router.route('/admin', _.extend({
-    name: 'AdminDashboard',
-    waitOn: function() {
-        return allSubscriptions();
-    }
+  name: 'AdminDashboard',
+  waitOn: function() {
+    return allSubscriptions();
+  }
 }, _.pick(AdminIronRouter, ['onBeforeAction', 'layoutTemplate'])));
 
 // COLLECTION ROUTE

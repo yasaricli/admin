@@ -17,17 +17,9 @@ root.Collections = function() {
 
 // all subscriptions Collections list.
 root.allSubscriptions = function() {
-  var out = [],
-      subscriptions = _.map(Collections(), function(coll) {
-        return coll.instance._admin.subscriptions;
-      });
-
-  _.forEach(subscriptions, function(list) {
-    _.forEach(list, function(sub) {
-      out.push(sub);
-    });
+  return _.map(Collections(), function(coll) {
+    return coll.instance._admin.subscriptions();
   });
-  return out;
 };
 
 root.cleanSort = function(sort) {
