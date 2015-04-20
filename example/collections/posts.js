@@ -16,6 +16,19 @@ Posts.attachSchema(new SimpleSchema({
         inlineMode: false
       }
     }
+  },
+
+  tags: {
+    type: [String],
+    label: 'Select Tags',
+    optional: true,
+    autoform: {
+      options: function() {
+        return Tags.find().map(function(t) {
+          return { label: t.name, value: t._id };
+        })
+      }
+    }
   }
 }));
 
@@ -23,5 +36,8 @@ Posts.attachSchema(new SimpleSchema({
 Posts.attachAdmin(new Admin({
   name: 'Posts',
   list_display: ['title'],
-  security: true // insert, remove, update role in admin.
+  security: true, // insert, remove, update role in admin.
+  subscriptions: {
+    tags: {}
+  }
 }));

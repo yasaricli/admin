@@ -55,7 +55,7 @@ root.AdminIronRouter = {
     var params = this.params,
         collection = Mongo.Collection.get(params.name);
     if (collection && _.has(collection, '_admin')) { 
-      return collection._admin.subscriptions;
+      return collection._admin.subscriptions();
     }
   },
   data: function() {
@@ -133,11 +133,11 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   });
 
   // admin extra subscriptions
-  _admin.subscriptions = _.map(options.subscriptions, function(filter, name, index) {
-    if (_.has(Meteor, 'subscribe')) {
+  _admin.subscriptions = function() {
+    return _.map(options.subscriptions, function(filter, name, index) {
       return Meteor.subscribe('publish', name, filter);
-    }
-  });
+    });
+  };
 
   // set Collection Original name
   _admin.name = options.name;
