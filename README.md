@@ -19,6 +19,9 @@ new Admin({
   exclude: [],
   sort: [],
   
+  // Pagination
+  list_per_page: 10,
+  
   // security
   role: 'admin',
   security: false,
