@@ -2,7 +2,7 @@
 * Dashboard display
 
 ### v0.0.1.1
-* Dashboard `allSubscriptions`
+* Dashboard `allSubscriptions` fixed.
 
 ### v0.0.1
 * **İnsert**, **Update**, **Remove** Docs.
