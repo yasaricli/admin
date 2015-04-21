@@ -1,13 +1,6 @@
  // Establish the root object, `window` in the browser, or `exports` on the server.
 var root = this;
 
-// defined on an method belong to it.
-defineServer = function(name, fn) {
-  if (Meteor.isServer) {
-    root[name] = fn;
-  }
-};
-
 // Returned Collections instance _admin.
 root.Collections = function() {
   return _.filter(Mongo.Collection.getAll(), function(doc) {
@@ -56,16 +49,7 @@ root.Pagination = function(cursor, perPage) {
   };
 };
 
-defineServer('createAdminUser', function(email, password) {
-  var userId = Accounts.createUser({ email: email, password: password });
-
-  // add roles
-  if (userId) {
-    Roles.addUsersToRoles(userId, ['admin']);
-  }
-});
-
-root.AdminIronRouter = {
+root.IronRouterAdmin = {
   layoutTemplate: 'adminLayout',
   loadingTemplate: 'adminLoading',
   waitOn: function() {
@@ -110,6 +94,7 @@ root.Admin = function Admin(admin, options) {
 
   // DEFAULTS
   this.list_display = [];
+  // XXX: Exclude attachAdmin method _.omit ???
   this.exclude = [];
 
   this.sort = {};
@@ -134,7 +119,8 @@ root.Admin = function Admin(admin, options) {
 Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var self = this,
       simpleSchema = self.simpleSchema(),
-      schema = _.omit(simpleSchema._schema, options.exclude);
+      // XXX: _.omit then exclude options.exclude.
+      schema = _.pick(simpleSchema._schema, options.list_display);
 
   if (!simpleSchema) {
     throw new Error("Not found simpleSchema use attachSchema");
@@ -145,11 +131,6 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   // default subscribe self collection name
   options.subscriptions[self._name] = {}
 
-  // fields filter
-  if (options.list_display.length) {
-    schema = _.pick(simpleSchema._schema, options.list_display);
-  }
-
   // sort
   _admin.sort = cleanSort(options.sort);
 
@@ -157,7 +138,7 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   _admin.perPage = options.list_per_page;
 
   // Fields
-  _admin.fields = _.map(schema, function(doc, key, list) {
+  _admin.fields = _.map(schema, function(doc, key) {
     var name = doc.label ? doc.label : key;
     return _.extend({ name: name, type: doc.type.name, key: key }, _.omit(doc, 'type'));
   });
