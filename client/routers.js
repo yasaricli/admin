@@ -4,7 +4,7 @@ Router.route('/admin', _.extend({
   waitOn: function() {
     return allSubscriptions();
   }
-}, _.pick(IronRouterAdmin, ['onBeforeAction', 'layoutTemplate'])));
+}, _.pick(IronRouterAdmin, ['onBeforeAction', 'layoutTemplate', 'loadingTemplate'])));
 
 // COLLECTION ROUTE
 Router.route('/admin/:name', _.extend({ name: 'AdminCollection' }, IronRouterAdmin));
