@@ -3,6 +3,7 @@
 
 ### 0.0.3
 * removed `createAdminUser` and `defineClient` methods.
+* removed layout template `adminLayoutSafe`
 
 ### 0.0.2_1
 * Pagination `totalPages` perPage fixed.
