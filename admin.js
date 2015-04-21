@@ -31,6 +31,13 @@ root.cleanSort = function(sort) {
   return out;
 };
 
+root.getAdminCollection = function(name) {
+  var coll = Mongo.Collection.get(name);
+  if (coll && _.has(coll, '_admin')) {
+    return coll._admin;
+  }
+};
+
 root.Pagination = function(cursor, perPage) {
   this.cursor = cursor.fetch();
   this.perPage = perPage;
@@ -41,12 +48,11 @@ root.Pagination = function(cursor, perPage) {
   };
 
   this.totalPages = function() {
-    var remainder = (this.cursor.length / perPage % 1),
-        totalPages;
+    var remainder = (this.cursor.length / this.perPage % 1);
     if (remainder !== 0) {
-      return (this.cursor.length / perPage - remainder + 1);
+      return (this.cursor.length / this.perPage - remainder + 1);
     }
-    return (this.cursor.length / perPage);
+    return (this.cursor.length / this.perPage);
   };
 };
 
@@ -63,10 +69,9 @@ root.AdminIronRouter = {
   layoutTemplate: 'adminLayout',
   loadingTemplate: 'adminLoading',
   waitOn: function() {
-    var params = this.params,
-        collection = Mongo.Collection.get(params.name);
-    if (collection && _.has(collection, '_admin')) { 
-      return collection._admin.subscriptions();
+    var admin = getAdminCollection(this.params.name);
+    if (admin) { 
+      return admin.subscriptions();
     }
   },
   data: function() {
