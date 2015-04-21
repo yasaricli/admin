@@ -1,5 +1,8 @@
 ### NEXT
 * Dashboard display
+
+### 0.0.4 
+* Pages total collection count.
 * Filter
 
 ### 0.0.3
