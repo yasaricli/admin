@@ -3,6 +3,10 @@
 * Search collection
 * Filter
 
+### 0.0.4_1
+* `loadingTemplate` fixed.
+* `adminSignInForm` Auto Focus
+
 ### 0.0.4 
 * Dashboard display
 * Pages total collection count
