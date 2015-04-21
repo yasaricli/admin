@@ -13,3 +13,9 @@ Template.adminButtons.events({
     event.preventDefault();
   }
 });
+
+Template.adminHeader.events({
+  'click .logout': function() {
+    Meteor.logout();
+  }
+});

@@ -3,8 +3,8 @@ body { padding:0px; margin:0px; }
 #AdminHeader { height:50px; background-color:#333; }
 #AdminMain { }
 
+#AdminLayout h2 { color:#333; }
 #AdminSiteName a, #AdminNav li a { line-height: 50px; padding:0 10px 0 10px; display:block; }
-
 .admin-cf:after{ clear: both; content: "."; display: block; height: 0; visibility: hidden; font-size: 0; }
 
 #AdminLayout .admin-list-table a { text-decoration:none; color:#1793C0; }
@@ -15,8 +15,8 @@ body { padding:0px; margin:0px; }
 #AdminNav li a, .adminPath { color:white; text-decoration:none; font-size:20px; }
 #AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover, .btn:hover { background-color:#000; }
 
-.left { float:left; }
-.right { float:right; }
+.left { float:left!important; }
+.right { float:right!important; }
 
 .mr5 { margin-right:5px; }
 .mt5 { margin-top:5px!important; }
@@ -69,3 +69,12 @@ form button { margin:20px 0 20px 0; outline:none; }
 #AdminPagination li.count { padding: 15px; color: #ccc; }
 #AdminPagination li a { display:block; background-color:#333; color:white; text-decoration:none; padding:15px; margin-right:2px; }
 #AdminPagination li a:hover, #AdminPagination li a.current { background-color:#000; }
+
+#AdminCollections { list-style:none; padding:0px; margin:0px }
+#AdminCollections ul { list-style:none; padding:0px; margin:0px; position:absolute; bottom:5px; left:5px; }
+#AdminCollections li { float:left; background-color:#333; color:white; text-align:center; margin-right:10px; padding:20px 75px 20px 75px; position:relative; }
+#AdminCollections li .admin-collection-name { font-size:25px; }
+#AdminCollections li .admin-collection-count { color:#f4f379; font-weight:bold; font-size:30px; margin-top:10px; }
+
+/* useraccounts */
+#AdminLayout .at-pwd-link, #AdminLayout .at-signup-link { display:none; }

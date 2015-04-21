@@ -1,6 +1,6 @@
 Package.describe({
     name: 'yasaricli:admin',
-    version: '0.0.3',
+    version: '0.0.4',
     summary: 'Meteorjs is the basic admin interface.',
     git: 'https://github.com/yasaricli/admin.git',
     documentation: 'README.md'
@@ -46,6 +46,8 @@ Package.onUse(function(api) {
       'aldeed:autoform@4.2.2 || 5.0.0',
       'alanning:roles@1.2.13',
       'ongoworks:security@1.1.0',
-      'idmontie:migrations@1.0.0'
+      'idmontie:migrations@1.0.0',
+      'useraccounts:core@1.9.1',
+      'useraccounts:unstyled@1.9.1'
     ]);
 });

@@ -97,7 +97,7 @@ root.IronRouterAdmin = {
     if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {
       return this.next();
     }
-    return this.render('adminWarningPage');
+    return this.render('adminSignInForm');
   }
 };
 

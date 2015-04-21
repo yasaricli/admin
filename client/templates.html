@@ -18,14 +18,33 @@
     <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActivePath regex='admin$' }}">Meteor Admin</a>
   </div>
   {{#if isInRole 'admin'}}
-    <ul id="AdminNav">
+    <ul id="AdminNav" class="admin-cf">
       {{# each collections }}
         <li>
           <a href="{{ pathFor route='AdminCollection' }}" class="{{ isActivePath regex=name }}">{{ name }}</a>
         </li>
       {{/each}}
+      <li class="right">
+        <a href="#" class="active logout">
+          {{ currentUser.emails.[0].address }}
+          <i class="fa fa-sign-out"></i>
+        </a>
+      </li>
     </ul>
   {{/if}}
+</template>
+
+<template name="adminDashboard">
+  <div id="AdminDashboard">
+    <ul id="AdminCollections" class="admin-cf">
+      {{#each collections }}
+        <li>
+          <div class="admin-collection-name">{{ admin.name }}</div>
+          <div class="admin-collection-count">{{ count }}</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 </template>
 
 <template name="adminCollection">
@@ -65,10 +84,6 @@
     </tbody>
   </table>
   {{ > adminPagination }}
-</template>
-
-<template name="adminDashboard">
-  adminDashBoard
 </template>
 
 <template name="adminButtons">
@@ -115,10 +130,15 @@
   {{/if}}
 </template>
 
-<template name="adminWarningPage">
-  <div id="adminWarningPage">
-    Collection or role not found.
-  </div>
+<template name="adminSignInForm">
+  {{# unless isInRole 'admin' }}
+    {{# autoForm schema=Schemas.adminSignInForm id="AdminSignInForm" type="normal" }}
+      <span class="help-block">{{ session 'AdminSignInFormError' }}</span>
+      {{> afQuickField name="email" }}
+      {{> afQuickField name="password" }}
+      <button class="admin-button">Login</button>
+    {{/autoForm }}
+  {{/unless}}
 </template>
 
 <template name="adminLoading">
