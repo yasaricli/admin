@@ -1,5 +1,6 @@
 ### NEXT
 
+* Search collection
 * Filter
 
 ### 0.0.4 
