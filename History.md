@@ -1,6 +1,9 @@
 ### NEXT
 * Dashboard display
 
+### 0.0.3
+* removed `createAdminUser` and `defineClient` methods.
+
 ### 0.0.2_1
 * Pagination `totalPages` perPage fixed.
 
