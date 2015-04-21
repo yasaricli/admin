@@ -126,37 +126,38 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
     throw new Error("Not found simpleSchema use attachSchema");
   }
 
-  this._admin = _admin = _.pick(_.extend({ }, self), ['_name']);
+  // Track the admin in the collection
+  this._admin = _.pick(_.extend({ }, self), ['_name']);
 
   // default subscribe self collection name
   options.subscriptions[self._name] = {}
 
   // sort
-  _admin.sort = cleanSort(options.sort);
+  this._admin.sort = cleanSort(options.sort);
 
   // pagination list_per_page
-  _admin.perPage = options.list_per_page;
+  this._admin.perPage = options.list_per_page;
+
+  // set Collection Original name
+  this._admin.name = options.name;
 
   // Fields
-  _admin.fields = _.map(schema, function(doc, key) {
+  this._admin.fields = _.map(schema, function(doc, key) {
     var name = doc.label ? doc.label : key;
     return _.extend({ name: name, type: doc.type.name, key: key }, _.omit(doc, 'type'));
   });
 
   // admin extra subscriptions
-  _admin.subscriptions = function() {
+  this._admin.subscriptions = function() {
     return _.map(options.subscriptions, function(filter, name, index) {
       return Meteor.subscribe('publish', name, filter);
     });
   };
 
-  // set Collection Original name
-  _admin.name = options.name;
-
-  // Is server meteor
+  // Current collection definitions (server side only)
   if (Meteor.isServer) {
 
-    // Clients may remove posts only if an admin user is logged in
+    // Permits set role and apply.
     if (options.security) {
       self.permit(options.permit).ifHasRole(options.role).apply();
     }
