@@ -1,12 +1,17 @@
 ### NEXT
-* Dashboard display
+
 * Filter
 
 ### 0.0.4 
-* Pages total collection count.
+* Dashboard display
+* Pages total collection count
+* **/admin** `adminSignInForm` login admin form
+* `useraccounts:core` and `useraccounts:unstyled` packages added
+* RegisterHelpers getSession `session` tag add.
+* Header admin email click to logout.
 
 ### 0.0.3
-* removed `createAdminUser` and `defineClient` methods.
+* removed `createAdminUser` and `defineClient` methods
 * removed layout template `adminLayoutSafe`
 * schema `_.omit` change to `_.pick` `list_display`
 
