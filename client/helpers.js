@@ -26,9 +26,7 @@ Template.adminCollection.helpers({
 
 Template.adminPagination.helpers({
   pages: function() {
-    return _.times(this.pagination().totalPages(), function(i) {
-      return { page: ++i };
-    });
+    return this.pagination().pages();
   },
   pageIs: function(page) {
     return this.page == (page || 1);

@@ -34,10 +34,13 @@ root.getAdminCollection = function(name) {
 root.Pagination = function(cursor, perPage) {
   this.cursor = cursor.fetch();
   this.perPage = perPage;
+  this.currentPage = 1;
 
-  this.collection = function(currentPage) {
-    var currentPage = currentPage || 1;
-    return this.cursor.slice((currentPage - 1) * this.perPage, currentPage * this.perPage);
+  this.page = function(page) {
+    if (page) {
+      this.currentPage = page;
+    }
+    return this.cursor.slice((this.currentPage - 1) * this.perPage, this.currentPage * this.perPage);
   };
 
   this.totalPages = function() {
@@ -47,6 +50,12 @@ root.Pagination = function(cursor, perPage) {
     }
     return (this.cursor.length / this.perPage);
   };
+
+  this.pages = function() {
+    return _.times(this.totalPages(), function(i) {
+      return { page: ++i };
+    });
+  }
 };
 
 root.IronRouterAdmin = {
@@ -73,11 +82,14 @@ root.IronRouterAdmin = {
       doc: function() {
         return collection.findOne(params._id);
       },
+      cursor: function() {
+        return cursor;
+      },
       pagination: function() {
         return pagination;
       },
       collection: function() {
-        return pagination.collection(params.page);
+        return pagination.page(params.page);
       }
     };
   },

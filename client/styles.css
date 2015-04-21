@@ -66,5 +66,6 @@ form button { margin:20px 0 20px 0; outline:none; }
 
 #AdminPagination { list-style:none; padding:0px; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px; }
 #AdminPagination li { float:left; }
+#AdminPagination li.count { padding: 15px; color: #ccc; }
 #AdminPagination li a { display:block; background-color:#333; color:white; text-decoration:none; padding:15px; margin-right:2px; }
 #AdminPagination li a:hover, #AdminPagination li a.current { background-color:#000; }
