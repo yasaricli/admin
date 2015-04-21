@@ -1,7 +1,7 @@
 ### NEXT
 * Dashboard display
 
-### 0.0.3
+### 0.0.2_1
 * Pagination `totalPages` perPage fixed.
 
 ### 0.0.2
