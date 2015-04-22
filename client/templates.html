@@ -87,9 +87,11 @@
 </template>
 
 <template name="adminButtons">
-  <button type="submit" class="btn btn-primary mr5 left adminSaveButton">{{ saveButtonText }}</button>
+  <button type="submit" class="admin-button mr5 left adminSaveButton">{{ saveButtonText }}</button>
   {{# if removeButtonText }}
-    <button type="submit" class="btn btn-danger mr5 left adminRemoveButton">{{ removeButtonText }}</button>
+    {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onSuccess class="admin-button adminRemoveButton mr5 left" }}
+      Remove
+    {{/quickRemoveButton}}
   {{/if}}
 </template>
 

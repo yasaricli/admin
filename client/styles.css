@@ -13,7 +13,7 @@ body { padding:0px; margin:0px; }
 #AdminNav { list-style:none; padding:0px; margin:0px; }
 #AdminNav li { float:left; }
 #AdminNav li a, .adminPath { color:white; text-decoration:none; font-size:20px; }
-#AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover, .btn:hover { background-color:#000; }
+#AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover { background-color:#000; }
 
 .left { float:left!important; }
 .right { float:right!important; }
@@ -45,7 +45,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 #adminLoginRequired { text-align: center; font-size: 30px; font-weight: bold; }
 
 #AdminListOptions { }
-.admin-button, .btn { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
+.admin-button { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
 
 /* FORMS STYLES */
 form { }
@@ -62,7 +62,8 @@ form button { margin:20px 0 20px 0; outline:none; }
 #adminWarningPage { background-color: rgb(165, 44, 44); color: white; padding: 25px; font-size: 25px; }
 
 .adminSaveButton { }
-.adminRemoveButton { background-color:rgb(144, 24, 24)!important; }
+.adminRemoveButton { background-color:rgb(144, 24, 24); }
+.adminRemoveButton:hover { background-color:rgb(129, 5, 5); }
 
 #AdminPagination { list-style:none; padding:0px; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px; }
 #AdminPagination li { float:left; }

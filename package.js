@@ -47,6 +47,7 @@ Package.onUse(function(api) {
       'dburles:mongo-collection-instances@0.3.3',
       'aldeed:collection2@2.3.3',
       'aldeed:autoform@4.2.2 || 5.0.0',
+      'aldeed:delete-button@1.0.0',
       'alanning:roles@1.2.13',
       'ongoworks:security@1.1.0',
       'idmontie:migrations@1.0.0',

@@ -57,3 +57,12 @@ Template.adminPagination.helpers({
     return this.page == (page || 1);
   }
 });
+
+Template.adminButtons.helpers({
+  onSuccess: function() {
+    var self = this;
+    return function() {
+      Router.go('AdminCollection', { name: self.admin._name });
+    }
+  }
+});
