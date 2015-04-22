@@ -8,7 +8,7 @@
 * `attachAdmin` method refactor.
 * DERECATED `new Admin({})`
 * A new `attachAdmin` object `Collection.attachAdmin(<options>)` is updated.
-* Addet `utils.js` file.
+* added `utils.js` file.
 
 ### 0.0.4_1
 * `loadingTemplate` fixed.
