@@ -33,11 +33,11 @@ Books.attachSchema(new SimpleSchema({
     summary: { type: String, label: "Brief summary", optional: true, autoform: { type: 'textarea' }}
 }));
 
-Books.attachAdmin(new Admin({
+Books.attachAdmin({
     name: 'Books',
     list_display: ['title', 'author', 'copies'],
     sort: ['-copies'],
     security: true,
     list_per_page: 5
-}));
+});
 ```
