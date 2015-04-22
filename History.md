@@ -8,7 +8,7 @@
 * `Admin.configure(<options>)` method added.
 * `adminOptions` Template tag added.
 * `SimpleSchema` not defined bugfix.
-* Export `Admin` Object
+* Export `Admin` and `SimpleSchema` Object
 
 ### 0.0.5
 * `attachAdmin` method refactor.
