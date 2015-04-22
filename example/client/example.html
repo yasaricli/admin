@@ -6,16 +6,8 @@
   {{ > yield }}
 </template>
 
-<template name="home">
-  {{ > loginButtons }}
-  {{# each posts }}
-    <h1>{{ title }}</h1>
-    <ul id="Tags">
-      {{# each tags }}
-        <li>{{ name }}</li>
-      {{/each}}
-    </ul>
-    <div>{{{ content }}}</div>
-    <hr/>
-  {{/each}}
+<template name="index">
+  <a href="{{ pathFor route='AdminDashboard' }}" class="btn">Click Admin Page</a>
+  <h1>email: admin@admin.com</h1>
+  <h1>password: 123456</h1>
 </template>

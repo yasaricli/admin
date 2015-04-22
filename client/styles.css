@@ -62,7 +62,7 @@ form button { margin:20px 0 20px 0; outline:none; }
 #adminWarningPage { background-color: rgb(165, 44, 44); color: white; padding: 25px; font-size: 25px; }
 
 .adminSaveButton { }
-.adminRemoveButton { background-color:rgb(144, 24, 24); }
+.adminRemoveButton { background-color:rgb(144, 24, 24)!important; }
 
 #AdminPagination { list-style:none; padding:0px; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px; }
 #AdminPagination li { float:left; }
