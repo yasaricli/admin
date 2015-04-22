@@ -77,7 +77,7 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var schema = this.simpleSchema();
 
   // Let's add a collection of admin features.
-  this._admin = _admin = _.extend(Admin.ATTACH_ADMIN_OPTIONS, options);
+  this._admin = _admin = _.extend(_.clone(Admin.ATTACH_ADMIN_OPTIONS), options);
 
   // adding the default subscriber will deliver to subscribe.
   this._admin.subscriptions[this._name] = {};
