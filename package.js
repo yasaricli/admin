@@ -1,6 +1,6 @@
 Package.describe({
     name: 'yasaricli:admin',
-    version: '0.0.5',
+    version: '0.0.6',
     summary: 'Meteorjs is the basic admin interface.',
     git: 'https://github.com/yasaricli/admin.git',
     documentation: 'README.md'
@@ -53,4 +53,7 @@ Package.onUse(function(api) {
       'useraccounts:core@1.9.1',
       'useraccounts:unstyled@1.9.1'
     ]);
+
+    // Export Admin Object
+    api.export(['SimpleSchema', 'Admin']);
 });

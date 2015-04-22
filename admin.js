@@ -1,16 +1,73 @@
-var DEFAULT_OPTIONS = {
-  sort: {},
-  list_display: [],
-  subscriptions: {},
+var AD = function Admin() {
+  var self = this;
 
-  // Pagination
-  list_per_page: 10,
+  // defauşt false
+  this._initialized = false;
 
-  // security
-  security: false,
-  role: 'admin',
-  permit: ['insert', 'update', 'remove'],
+  this.ATTACH_ADMIN_OPTIONS = {
+    sort: {},
+    list_display: [],
+    subscriptions: {},
+
+    // Pagination
+    list_per_page: 10,
+
+    // security
+    security: false,
+    role: 'admin',
+    permit: ['insert', 'update', 'remove'],
+  };
+
+  this.OPTIONS = {
+    title: 'Meteor Admin'
+  };
+
+  this.HELPERS = {
+    adminOptions: function() {
+      return self.OPTIONS;
+    }
+  };
+
+  this.configure = function(config) {
+    this.OPTIONS = _.defaults(config, this.OPTIONS);
+  };
+
+  this.isServer = function(callback) {
+    return Meteor.isServer && callback.call(this);
+  };
+
+  this.isClient = function(callback) {
+    return Meteor.isClient && callback.call(this);
+  };
+
+  this._init = function() {
+    if (this._initialized) return;
+
+    // client side
+    this.isClient(function() {
+
+      // Register Helpers
+      _.each(this.HELPERS, function(fn, name) {
+        Template.registerHelper(name, fn);
+      });
+    });
+
+    // server side
+    this.isServer(function() {
+
+    });
+
+    // Admin as initialized
+    this._initialized = true;
+  };
 };
+
+Admin = new AD();
+
+// Initialization
+Meteor.startup(function() {
+  Admin._init();
+});
 
 /*
  * Mongo.Collection.prototype.attachAdmin
@@ -20,7 +77,7 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var schema = this.simpleSchema();
 
   // Let's add a collection of admin features.
-  this._admin = _admin = _.extend(DEFAULT_OPTIONS, options);
+  this._admin = _admin = _.extend(Admin.ATTACH_ADMIN_OPTIONS, options);
 
   // adding the default subscriber will deliver to subscribe.
   this._admin.subscriptions[this._name] = {};
