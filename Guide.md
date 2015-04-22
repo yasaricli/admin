@@ -4,22 +4,21 @@ In this example we'll omit the admin provide an options
 object. The options object will explain each of the possible options.
 
 ```javascript
-new Admin({
-  
+ATTACH_ADMIN_OPTIONS = {
+
+  sort: {},
   list_display: [],
-  exclude: [],
-  sort: [],
-  
+  subscriptions: {},
+
   // Pagination
   list_per_page: 10,
-  
+
   // security
-  role: 'admin',
   security: false,
-  permit: ['insert', 'update', 'remove'],
+  role: 'admin',
+  permit: ['insert', 'update', 'remove']
   
-  subscriptions: {}
-});
+};
 ```
 ## Attaching a Schema and Admin to a Collection
 
@@ -42,9 +41,3 @@ Books.attachAdmin(new Admin({
     list_per_page: 5
 }));
 ```
-
-#### /admin list books
-![books](http://i.imgur.com/zrugzOT.png)
-
-#### /admin update book
-![books](http://i.imgur.com/Ro9Amsh.png)
