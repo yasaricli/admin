@@ -3,6 +3,10 @@
 * Search collection
 * Filter
 
+### 0.0.5_1
+* `SimpleSchema` not defined bugfix.
+* Export `Admin` Object
+* `Admin.configure(<options>)` method added.
 
 ### 0.0.5
 * `attachAdmin` method refactor.
