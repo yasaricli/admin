@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.6_1
+* `Admin.ATTACH_ADMIN_OPTIONS` clone bugfix
+
 ### 0.0.6
 * new `Admin` Object
 * `Admin.configure(<options>)` method added.
