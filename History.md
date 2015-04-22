@@ -3,6 +3,13 @@
 * Search collection
 * Filter
 
+
+### 0.0.5
+* `attachAdmin` method refactor.
+* DERECATED `new Admin({})`
+* A new `attachAdmin` object `Collection.attachAdmin(<options>)` is updated.
+* Addet `utils.js` file.
+
 ### 0.0.4_1
 * `loadingTemplate` fixed.
 * `adminSignInForm` Auto Focus
