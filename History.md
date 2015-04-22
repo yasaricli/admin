@@ -9,6 +9,7 @@
 * DERECATED `new Admin({})`
 * A new `attachAdmin` object `Collection.attachAdmin(<options>)` is updated.
 * added `utils.js` file.
+* example application updated deploy `metadmin.meteor.com`
 
 ### 0.0.4_1
 * `loadingTemplate` fixed.
