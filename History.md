@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.7
+* added `aldeed:delete-button` package and update buttons.
+
 ### 0.0.6_1
 * `Admin.ATTACH_ADMIN_OPTIONS` clone bugfix
 
