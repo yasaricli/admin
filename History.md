@@ -1,12 +1,12 @@
-### NEXT 0.0.9
+### NEXT `0.0.9`
 
 * Search collection
 * Filter
 
 ### 0.0.9 
-* Examples add books application
-* Examples add blog application
-* Change admin password
+* Examples add `books` application
+* Examples add `blog` application
+* Change admin `password`
 
 ### 0.0.8 
 * added admin options `verbose_name`
