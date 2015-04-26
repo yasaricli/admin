@@ -36,7 +36,8 @@ Package.onUse(function(api) {
       'accounts-password',
       'mongo',
       'underscore',
-      'templating'
+      'templating',
+      'tracker'
     ], ['client', 'server']);
 
     // Third-party package dependencies

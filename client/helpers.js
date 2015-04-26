@@ -1,13 +1,15 @@
-var RegisterHelpers = {
+var Helpers = {
   session: function(key) {
     return Session.get(key);
+  },
+  is: function(a, b) {
+    return a == b;
   }
 };
 
-_.each(RegisterHelpers, function(fn, name) {
+_.each(Helpers, function(fn, name) {
   Template.registerHelper(name, fn);
 });
-
 
 // TEMPLATE HELPERS
 Template.adminHeader.helpers({
@@ -52,9 +54,6 @@ Template.adminDashboard.helpers({
 Template.adminPagination.helpers({
   pages: function() {
     return this.pagination().pages();
-  },
-  pageIs: function(page) {
-    return this.page == (page || 1);
   }
 });
 
