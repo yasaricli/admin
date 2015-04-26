@@ -2,9 +2,9 @@
 
 * Search collection
 * Filter
+* Change admin password
 
 ### 0.0.8 
-* Change admin password
 * added admin options `verbose_name`
 * removed `adminButtons` template and `helpers`.
 
