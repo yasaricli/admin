@@ -4,6 +4,12 @@ var Helpers = {
   },
   is: function(a, b) {
     return a == b;
+  },
+  onRemoveSuccess: function() {
+    var self = this;
+    return function() {
+      Router.go('AdminCollection', { name: self.admin()._name });
+    }
   }
 };
 
@@ -54,14 +60,5 @@ Template.adminDashboard.helpers({
 Template.adminPagination.helpers({
   pages: function() {
     return this.pagination().pages();
-  }
-});
-
-Template.adminButtons.helpers({
-  onSuccess: function() {
-    var self = this;
-    return function() {
-      Router.go('AdminCollection', { name: self.admin._name });
-    }
   }
 });

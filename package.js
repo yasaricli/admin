@@ -1,6 +1,6 @@
 Package.describe({
     name: 'yasaricli:admin',
-    version: '0.0.7',
+    version: '0.0.8',
     summary: 'Meteorjs is the basic admin interface.',
     git: 'https://github.com/yasaricli/admin.git',
     documentation: 'README.md'

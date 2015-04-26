@@ -50,7 +50,7 @@
 <template name="adminCollection">
   <div id="AdminListOptions" class="admin-cf">
     <div class="right">
-      <a href="{{ pathFor route='AdminCollectionInsert' name=admin._name }}" class="admin-button">New {{ admin._name }}</a>
+      <a href="{{ pathFor route='AdminCollectionInsert' name=admin._name }}" class="admin-button">New {{ admin.verbose_name }}</a>
     </div>
   </div>
   <table class="admin-list-table">
@@ -86,32 +86,26 @@
   {{ > adminPagination }}
 </template>
 
-<template name="adminButtons">
-  <button type="submit" class="admin-button mr5 left adminSaveButton">{{ saveButtonText }}</button>
-  {{# if removeButtonText }}
-    {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onSuccess class="admin-button adminRemoveButton mr5 left" }}
-      Remove
-    {{/quickRemoveButton}}
-  {{/if}}
-</template>
-
 <template name="adminCollectionInsert">
-  <h3>New {{ admin._name }}</h3>
+  <h3>New {{ admin.verbose_name }}</h3>
   {{# autoForm collection=admin.name id="insertForm" type="insert" }}
     {{# each afFieldNames }}
       {{> afQuickField name=this }}
     {{/each }}
-    {{ > adminButtons saveButtonText="Insert" }}
+    <button type="submit" class="admin-button mr5 left adminSaveButton">Insert {{ admin.verbose_name }}</button>
   {{/autoForm}}
 </template>
 
 <template name="adminCollectionUpdate">
-  <h3>Update {{ admin._name }}</h3>
+  <h3>Update {{ admin.verbose_name }}</h3>
   {{# autoForm collection=admin.name id="insertForm" type="update" doc=doc}}
     {{# each afFieldNames }}
       {{> afQuickField name=this }}
     {{/each }}
-    {{ > adminButtons saveButtonText="Save" removeButtonText="Remove" doc=doc admin=admin }}
+    <button type="submit" class="admin-button mr5 left adminSaveButton">Save {{ admin.verbose_name }}</button>
+    {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onRemoveSuccess class="admin-button adminRemoveButton mr5 left" }}
+      Remove {{ admin.verbose_name }}
+    {{/quickRemoveButton}}
   {{/autoForm}}
 </template>
 

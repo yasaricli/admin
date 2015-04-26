@@ -8,6 +8,7 @@ var AD = function Admin() {
     sort: {},
     list_display: [],
     subscriptions: {},
+    verbose_name: null,
 
     // Pagination
     list_per_page: 10,
@@ -15,7 +16,7 @@ var AD = function Admin() {
     // security
     security: false,
     role: 'admin',
-    permit: ['insert', 'update', 'remove'],
+    permit: ['insert', 'update', 'remove']
   };
 
   this.OPTIONS = {
@@ -90,6 +91,11 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
 
   // We exclude the default fields. And we are creating a clean object.
   this._admin.list_display = _.pick(schema._schema, _admin.list_display);
+
+  // if verbose_name null then set to this collection name.
+  if (!this._admin.verbose_name) {
+    this._admin.verbose_name = this._name;
+  }
 
   this._admin.fields = _.map(_admin.list_display, function(doc, key) {
     var name = doc.label ? doc.label : key;
