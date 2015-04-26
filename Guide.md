@@ -20,10 +20,20 @@ ATTACH_ADMIN_OPTIONS = {
   permit: ['insert', 'update', 'remove']
   
 };
+
+OPTIONS = {
+  title: 'Meteor Admin'
+};
+```
+## Configuring the Admin
+```javascript
+Admin.configure({
+  title: 'Books Admin'
+});
 ```
 ## Attaching a Schema and Admin to a Collection
 
-```js
+```javascript
 Books = new Mongo.Collection("books");
 
 Books.attachSchema(new SimpleSchema({
