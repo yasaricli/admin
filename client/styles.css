@@ -1,5 +1,5 @@
 body { padding:0px; margin:0px; }
-#AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; }
+#AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; position: absolute; top: 0px; width: 100%; height: 100%; background-color:white; }
 #AdminHeader { height:50px; background-color:#333; }
 #AdminMain { }
 
@@ -59,7 +59,7 @@ body { padding:0px; margin:0px; }
 #AdminLayout .admin-list-table thead tr th span { padding-right: 20px; background-repeat: no-repeat; background-position: 100% 100%; color:#fff; }
 #AdminLayout .admin-list-table thead tr th.headerSortUp,
 #AdminLayout .admin-list-table thead tr th.headerSortDown { background: #acc8dd; }
-#AdminLayout .admin-list-table tbody tr { color: #555; }
+#AdminLayout .admin-list-table tbody tr { color: #555; font-size:15px; }
 #AdminLayout .admin-list-table tbody tr:hover { background-color:#F9F9F9; }
 #AdminLayout .admin-list-table tbody tr td { text-align: center; padding: 15px 10px; }
 #AdminLayout .admin-list-table tbody tr td.lalign { text-align: left; }

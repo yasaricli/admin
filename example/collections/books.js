@@ -12,5 +12,5 @@ Books.attachAdmin({
     list_display: ['title', 'author', 'copies'],
     sort: ['-copies'],
     security: true,
-    list_per_page: 2
+    list_per_page: 4
 });
