@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.8 
+* Change admin password
+
 ### 0.0.7
 * added `aldeed:delete-button` package and update buttons.
 * list table change font size `14px`.
