@@ -1,22 +1,3 @@
-var Helpers = {
-  session: function(key) {
-    return Session.get(key);
-  },
-  is: function(a, b) {
-    return a == b;
-  },
-  onRemoveSuccess: function() {
-    var self = this;
-    return function() {
-      Router.go('AdminCollection', { name: self.admin()._name });
-    }
-  }
-};
-
-_.each(Helpers, function(fn, name) {
-  Template.registerHelper(name, fn);
-});
-
 // TEMPLATE HELPERS
 Template.adminHeader.helpers({
   collections: function() {

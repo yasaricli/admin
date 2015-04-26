@@ -26,6 +26,18 @@ var AD = function Admin() {
   this.HELPERS = {
     adminOptions: function() {
       return self.OPTIONS;
+    },
+    session: function(key) {
+      return Session.get(key);
+    },
+    is: function(a, b) {
+      return a == b;
+    },
+    onRemoveSuccess: function() {
+      var self = this;
+      return function() {
+        Router.go('AdminCollection', { name: self.admin()._name });
+      }
     }
   };
 
