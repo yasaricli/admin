@@ -7,6 +7,7 @@
 * added `aldeed:delete-button` package and update buttons.
 * list table change font size `14px`.
 * example `list_per_page` change to `4`.
+* `isPage` helper removed.
 
 ### 0.0.6_1
 * `Admin.ATTACH_ADMIN_OPTIONS` clone bugfix
