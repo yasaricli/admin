@@ -23,7 +23,6 @@ ATTACH_ADMIN_OPTIONS = {
 ```
 ## Attaching a Schema and Admin to a Collection
 
-[Watch and learn example Youtube](https://www.youtube.com/watch?v=jWhSGTQxYgg)
 ```js
 Books = new Mongo.Collection("books");
 
