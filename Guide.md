@@ -9,6 +9,7 @@ ATTACH_ADMIN_OPTIONS = {
   sort: {},
   list_display: [],
   subscriptions: {},
+  verbose_name: null,
 
   // Pagination
   list_per_page: 10,
@@ -38,6 +39,7 @@ Books.attachAdmin({
     list_display: ['title', 'author', 'copies'],
     sort: ['-copies'],
     security: true,
-    list_per_page: 5
+    list_per_page: 5,
+    verbose_name: 'Book',
 });
 ```
