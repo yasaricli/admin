@@ -2,13 +2,22 @@
   <title>blog</title>
 </head>
 
-<body>
-  <h1>Welcome to Meteor!</h1>
+<template name="layout">
+  <div id="Surface">
+    {{ > yield }}
+  </div>
+</template>
 
-  {{> hello}}
-</body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="posts">
+  <ul>
+    {{# each posts }}
+      <li>
+        {{# each tags }}
+          <b>{{ title }}</b>
+        {{/each}}
+        <h1>{{ title }}</h1>
+        <p>{{{ content }}}</p>
+      </li>
+    {{/each}}
+  </ul>
 </template>

@@ -12,9 +12,10 @@ Posts.attachSchema(new SimpleSchema({
       }
     }
   },
-  tags: {
+  tagIds: {
     type: [String],
     optional: true,
+    label: 'Tags',
     autoform: {
       options: function() {
         return Tags.find({ }).map(function(t) {
@@ -22,14 +23,23 @@ Posts.attachSchema(new SimpleSchema({
         });
       }
     }
+  },
+  active: {
+    type: Boolean
   }
 }));
 
+Posts.helpers({
+  tags: function() {
+    return Tags.find({ _id: { $in: this.tagIds }});
+  }
+});
+
 Posts.attachAdmin({
-    name: 'Posts',
-    list_display: ['title'],
-    sort: ['-createdAt'],
-    security: true,
-    list_per_page: 5,
-    verbose_name: 'Post'
+  name: 'Posts',
+  list_display: ['title', 'active'],
+  sort: ['-createdAt'],
+  security: true,
+  list_per_page: 5,
+  verbose_name: 'Post'
 });
