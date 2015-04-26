@@ -9,6 +9,7 @@
 * example `list_per_page` change to `4`.
 * `isPage` helper removed.
 * add to `is` template helper `{{# if is 'a' 'b' }} --> true`.
+* add Meteor-provided package to `tracker`
 
 ### 0.0.6_1
 * `Admin.ATTACH_ADMIN_OPTIONS` clone bugfix
