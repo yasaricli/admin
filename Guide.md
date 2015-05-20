@@ -1,7 +1,24 @@
 
+## Examples
+Meteor deployed applications 
+
+[Blog APP](http://admin-blog.meteor.com)
+
+[Books APP](http://admin-books.meteor.com)
+
+
+## Quick Start
+You can install yasaricli:admin using Meteor's package management system:
+
+```bash
+> meteor add yasaricli:admin
+```
+
+
 ### Admin Specific Options
 In this example we'll omit the admin provide an options
 object. The options object will explain each of the possible options.
+
 
 ```javascript
 ATTACH_ADMIN_OPTIONS = {
