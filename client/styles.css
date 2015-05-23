@@ -1,5 +1,5 @@
 body { padding:0px; margin:0px; }
-#AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; position: absolute; top: 0px; width: 100%; height: 100%; background-color:white; }
+#AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; position: absolute; top: 0px; width: 100%; height: 100%; background-color:white; color:#333; }
 #AdminHeader { height:50px; background-color:#333; }
 #AdminMain { }
 
@@ -16,7 +16,7 @@ body { padding:0px; margin:0px; }
 
 #AdminLayout .admin-cf:after{ clear: both; content: "."; display: block; height: 0; visibility: hidden; font-size: 0; }
 
-#AdminLayout h2 { color:#333; }
+#AdminLayout h2, #AdminLayout h3 { color:#333; }
 #AdminSiteName a,
 #AdminLayout #AdminNav li a { line-height: 50px; padding:0 10px 0 10px; display:block; }
 

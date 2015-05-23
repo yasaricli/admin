@@ -2,7 +2,7 @@
 Router.route('/admin', _.extend({
   name: 'AdminDashboard',
   waitOn: function() {
-    return allSubscriptions();
+    return getAllSubscriptions();
   }
 }, _.pick(IronRouterAdmin, ['onBeforeAction', 'layoutTemplate', 'loadingTemplate'])));
 

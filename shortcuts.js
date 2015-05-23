@@ -1,13 +1,13 @@
 // Returned Collections instance _admin.
-Collections = function() {
+getAllCollections = function() {
   return _.filter(Mongo.Collection.getAll(), function(doc) {
       return _.has(doc.instance, '_admin');
   });
 };
 
 // all subscriptions Collections list.
-allSubscriptions = function() {
-  return _.map(Collections(), function(coll) {
+getAllSubscriptions = function() {
+  return _.map(getAllCollections(), function(coll) {
     return coll.instance._admin.runSubscriptions();
   });
 };
@@ -52,7 +52,11 @@ Pagination = function(cursor, list_per_page) {
     return _.times(this.totalPages(), function(i) {
       return { page: ++i };
     });
-  }
+  };
+
+  this.count = function() {
+    return this.cursor.length;
+  };
 };
 
 IronRouterAdmin = {
@@ -60,9 +64,9 @@ IronRouterAdmin = {
   loadingTemplate: 'adminLoading',
   waitOn: function() {
     var admin = getAdminCollection(this.params.name);
-    if (admin) { 
-      return admin.runSubscriptions();
-    }
+    return _.map(admin.subscriptions, function(filter, name) {
+      return Meteor.subscribe('publish', name, filter);
+    });
   },
   data: function() {
     var params = this.params,
@@ -78,9 +82,6 @@ IronRouterAdmin = {
       },
       doc: function() {
         return collection.findOne(params._id);
-      },
-      cursor: function() {
-        return cursor;
       },
       pagination: function() {
         return pagination;

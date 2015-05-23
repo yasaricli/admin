@@ -41,5 +41,8 @@ Posts.attachAdmin({
   sort: ['-createdAt'],
   security: true,
   list_per_page: 5,
-  verbose_name: 'Post'
+  verbose_name: 'Post',
+  subscriptions: {
+    tags: { }
+  }
 });

@@ -1,4 +1,21 @@
-var AD = function Admin() {
+var AD, OPTIONS;
+
+OPTIONS = function() {
+    this.sort = {};
+    this.list_display = [];
+    this.subscriptions = {};
+    this.verbose_name = null;
+
+    // Pagination
+    this.list_per_page = 10;
+
+    // security
+    this.security = false;
+    this.role = 'admin';
+    this.permit = ['insert', 'update', 'remove'];
+};
+
+AD = function Admin() {
   var self = this;
 
   // defauşt false
@@ -26,18 +43,6 @@ var AD = function Admin() {
   this.HELPERS = {
     adminOptions: function() {
       return self.OPTIONS;
-    },
-    session: function(key) {
-      return Session.get(key);
-    },
-    is: function(a, b) {
-      return a == b;
-    },
-    onRemoveSuccess: function() {
-      var self = this;
-      return function() {
-        Router.go('AdminCollection', { name: self.admin()._name });
-      }
     }
   };
 
@@ -90,7 +95,7 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var schema = this.simpleSchema();
 
   // Let's add a collection of admin features.
-  this._admin = _admin = _.extend(_.clone(Admin.ATTACH_ADMIN_OPTIONS), options);
+  this._admin = _admin = _.extend(new OPTIONS(), options);
 
   // adding the default subscriber will deliver to subscribe.
   this._admin.subscriptions[this._name] = {};
@@ -113,12 +118,6 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
     var name = doc.label ? doc.label : key;
     return _.extend({ name: name, type: doc.type.name, key: key }, _.omit(doc, 'type'));
   });
-
-  this._admin.runSubscriptions = function() {
-    return _.map(_admin.subscriptions, function(filter, name) {
-      return Meteor.subscribe('publish', name, filter);
-    });
-  };
 
   // Our code to run the server-side
   if (Meteor.isServer) {

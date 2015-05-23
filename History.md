@@ -4,6 +4,8 @@
 * Filter
 
 ### 0.0.9 
+* `AdminLayout` css color changed
+* `Subscriptions` bugfix
 * Examples add `books` application
 * Examples add `blog` application
 * Change admin `password`

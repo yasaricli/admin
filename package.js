@@ -11,14 +11,14 @@ Package.onUse(function(api) {
 
     // Utils and base js
     api.addFiles([
-      'utils.js',
+      'shortcuts.js',
       'admin.js'
     ]);
 
     api.addFiles([
       'client/templates.html',
       'client/styles.css',
-      'client/autoform.js',
+      'client/shortcuts.js',
       'client/rendered.js',
       'client/events.js',
       'client/helpers.js',
@@ -52,8 +52,8 @@ Package.onUse(function(api) {
       'alanning:roles@1.2.13',
       'ongoworks:security@1.1.0',
       'idmontie:migrations@1.0.0',
-      'useraccounts:core@1.9.1',
-      'useraccounts:unstyled@1.9.1'
+      'useraccounts:core@1.10.0',
+      'useraccounts:unstyled@1.10.0'
     ]);
 
     // Export Admin Object

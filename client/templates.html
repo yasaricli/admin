@@ -39,7 +39,7 @@
     <ul id="AdminCollections" class="admin-cf">
       {{#each collections }}
         <li>
-          <div class="admin-collection-name">{{ admin.name }}</div>
+          <div class="admin-collection-name">{{ getCollectionAdmin.name }}</div>
           <div class="admin-collection-count">{{ count }}</div>
         </li>
       {{/each}}
@@ -67,12 +67,12 @@
           {{# each setIndex ../admin.fields }}
             <td>
               {{# if isBoolean }}
-                <i class="fa fa-check-circle {{ getValue .. }}"></i>
+                <i class="fa fa-check-circle {{ getVal .. }}"></i>
               {{ else }}
                 {{# if first }}
-                  <a href="{{ pathFor route="AdminCollectionUpdate" name=../../admin._name _id=../_id }}">{{ getValue .. }}</a>
+                  <a href="{{ pathFor route="AdminCollectionUpdate" name=../../admin._name _id=../_id }}">{{ getVal .. }}</a>
                 {{ else }}
-                  {{ getValue .. }}
+                  {{ getVal .. }}
                 {{/if}}
               {{/if}}
             </td>
@@ -120,7 +120,7 @@
         </li>
       {{/each}}
       <li class="count">
-        {{ cursor.count }} {{ admin._name }}
+        {{ pagination.count }} {{ admin._name }}
       </li>
     </ul>
   {{/if}}
@@ -128,7 +128,7 @@
 
 <template name="adminSignInForm">
   {{# unless isInRole 'admin' }}
-    {{# autoForm schema=Schemas.adminSignInForm id="AdminSignInForm" type="normal" }}
+    {{# autoForm schema=adminSignInForm id="AdminSignInForm" type="normal" }}
       <span class="help-block">{{ session 'AdminSignInFormError' }}</span>
       {{> afQuickField name="email" }}
       {{> afQuickField name="password" }}
