@@ -96,9 +96,9 @@
 <template name="adminCollectionInsert">
   <h3>New {{ admin.verbose_name }}</h3>
   {{# autoForm collection=admin.name id="insertForm" type="insert" }}
-    {{# each afFieldNames }}
+    {{# if notContains ../admin.exclude this }}
       {{> afQuickField name=this }}
-    {{/each }}
+    {{/if}}
     <button type="submit" class="admin-button mr5 left adminSaveButton">Insert {{ admin.verbose_name }}</button>
   {{/autoForm}}
 </template>
@@ -107,7 +107,9 @@
   <h3>Update {{ admin.verbose_name }}</h3>
   {{# autoForm collection=admin.name id="insertForm" type="update" doc=doc}}
     {{# each afFieldNames }}
-      {{> afQuickField name=this }}
+      {{# if notContains ../admin.exclude this }}
+        {{> afQuickField name=this }}
+      {{/if}}
     {{/each }}
     <button type="submit" class="admin-button mr5 left adminSaveButton">Save {{ admin.verbose_name }}</button>
     {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onRemoveSuccess class="admin-button adminRemoveButton mr5 left" }}

@@ -34,6 +34,10 @@ HELPERS = {
     return a == b;
   },
 
+  notContains: function(list, key) {
+    return !_.contains(list, key);
+  },
+
   onRemoveSuccess: function() {
     var self = this;
     return function() {
@@ -92,9 +96,12 @@ AutoForm.hooks({
 // TEMPLATE PROTOTYPES
 Template.prototype.onRenderedFocus = function (cb) {
   this._callbacks.rendered.push(function() {
+    var firstInput = this.find('input');
 
     // first element focus on render then
-    this.find('input').focus();
+    if (firstInput) {
+      this.find('input').focus();
+    }
 
     // call callback
     cb.call(this);

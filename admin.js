@@ -3,6 +3,7 @@ var AD, OPTIONS;
 OPTIONS = function() {
     this.sort = {};
     this.list_display = [];
+    this.exclude = [];
     this.subscriptions = {};
     this.verbose_name = null;
 
