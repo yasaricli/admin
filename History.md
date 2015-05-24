@@ -4,11 +4,12 @@
 * Filter
 
 ### 0.0.9 
+* Change admin `password`
+* `exclude` This attribute, if given, should be a list of field names to exclude from the form.
 * `AdminLayout` css color changed
 * `Subscriptions` bugfix
 * Examples add `books` application
 * Examples add `blog` application
-* Change admin `password`
 
 ### 0.0.8 
 * added admin options `verbose_name`
