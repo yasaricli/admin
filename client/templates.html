@@ -96,9 +96,11 @@
 <template name="adminCollectionInsert">
   <h3>New {{ admin.verbose_name }}</h3>
   {{# autoForm collection=admin.name id="insertForm" type="insert" }}
-    {{# if notContains ../admin.exclude this }}
-      {{> afQuickField name=this }}
-    {{/if}}
+    {{# each afFieldNames }}
+      {{# if notContains ../admin.exclude this }}
+        {{> afQuickField name=this }}
+      {{/if}}
+    {{/each}}
     <button type="submit" class="admin-button mr5 left adminSaveButton">Insert {{ admin.verbose_name }}</button>
   {{/autoForm}}
 </template>
