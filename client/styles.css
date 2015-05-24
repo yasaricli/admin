@@ -4,6 +4,7 @@ body { padding:0px; margin:0px; }
 #AdminMain { }
 
 #AdminLayout ul { list-style:none; padding:0px; margin:0px; }
+#AdminLayout a { color:#333; }
 
 #AdminLayout .left { float:left!important; }
 #AdminLayout .right { float:right!important; }

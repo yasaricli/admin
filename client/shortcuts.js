@@ -19,7 +19,8 @@ HELPERS = {
   },
 
   getVal: function(doc) {
-    return doc[this.key];
+    var val = doc[this.key];
+    return this.type == 'Array' ? val.length : val;
   },
 
   isBoolean: function() {

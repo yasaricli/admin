@@ -19,7 +19,7 @@ OPTIONS = function() {
 AD = function Admin() {
   var self = this;
 
-  // defauşt false
+  // default false
   this._initialized = false;
 
   this.ATTACH_ADMIN_OPTIONS = {
