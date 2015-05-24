@@ -24,11 +24,18 @@
           <a href="{{ pathFor route='AdminCollection' }}" class="{{ isActivePath regex=name }}">{{ name }}</a>
         </li>
       {{/each}}
-      <li class="right">
-        <a href="#" class="active logout">
+      <li class="admin">
+        <a href="#">
           {{ currentUser.emails.[0].address }}
-          <i class="fa fa-sign-out"></i>
-         </a>
+          <ul class="adminSettings">
+            <li>
+            <a href="{{ pathFor route='atChangePwd' }}">Change Password</a>
+            </li>
+            <li>
+              <a href="/logout" class="logout">Logout</a>
+            </li>
+          </ul>
+        </a>
       </li>
     </ul>
   {{/if}}

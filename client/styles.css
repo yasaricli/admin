@@ -3,6 +3,8 @@ body { padding:0px; margin:0px; }
 #AdminHeader { height:50px; background-color:#333; }
 #AdminMain { }
 
+#AdminLayout ul { list-style:none; padding:0px; margin:0px; }
+
 #AdminLayout .left { float:left!important; }
 #AdminLayout .right { float:right!important; }
 
@@ -43,7 +45,7 @@ body { padding:0px; margin:0px; }
 #AdminLayout .autoform-add-item { padding:0px; margin:0px; border:0px; background-color:#333; padding:10px; margin-right:10px; }
 
 #AdminNav { list-style:none; padding:0px; margin:0px; }
-#AdminNav li { float:left; }
+#AdminNav > li { float:left; }
 #AdminNav li a, .adminPath { color:white; text-decoration:none; font-size:20px; }
 #AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover { background-color:#000; }
 
@@ -64,9 +66,12 @@ body { padding:0px; margin:0px; }
 #AdminLayout .admin-list-table tbody tr td { text-align: center; padding: 15px 10px; }
 #AdminLayout .admin-list-table tbody tr td.lalign { text-align: left; }
 #AdminLayout #adminLoginRequired { text-align: center; font-size: 30px; font-weight: bold; }
-#AdminLayout .admin-button { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
-#AdminLayout. fa-check-circle { color:#CCC; }
+#AdminLayout .admin-button, .at-btn { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
+#AdminLayout .fa-check-circle { color:#CCC; }
 #AdminLayout .fa-check-circle.true { color:#0BF; }
+
+#AdminLayout .at-error { }
+#AdminLayout .at-error p { margin:0 0 5px 0px; padding:10px; background-color:rgb(126, 3, 3); color:white; }
 
 #AdminLayout #adminWarningPage { background-color: rgb(165, 44, 44); color: white; padding: 25px; font-size: 25px; }
 
@@ -88,3 +93,9 @@ body { padding:0px; margin:0px; }
 
 /* useraccounts */
 #AdminLayout .at-pwd-link, #AdminLayout .at-signup-link { display:none; }
+#AdminLayout .admin { float:right; position:relative; }
+#AdminLayout .admin:hover .adminSettings { display:block; }
+#AdminLayout .admin a { font-size:15px; }
+#AdminLayout .admin .adminSettings { position:absolute; left:0px; display:none; width:100%; }
+#AdminLayout .admin .adminSettings a { background-color:#000; }
+#AdminLayout .admin .adminSettings a:hover { background-color:rgba(0, 0, 0, 0.85); }

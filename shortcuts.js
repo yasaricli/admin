@@ -7,8 +7,8 @@ getAllCollections = function() {
 
 // all subscriptions Collections list.
 getAllSubscriptions = function() {
-  return _.map(getAllCollections(), function(coll) {
-    return coll.instance._admin.runSubscriptions();
+  return _.map(getAllCollections(), function(collection) {
+    return Meteor.subscribe('publish', collection.name, {});
   });
 };
 
@@ -64,32 +64,37 @@ IronRouterAdmin = {
   loadingTemplate: 'adminLoading',
   waitOn: function() {
     var admin = getAdminCollection(this.params.name);
-    return _.map(admin.subscriptions, function(filter, name) {
-      return Meteor.subscribe('publish', name, filter);
-    });
+    if (admin) {
+      return _.map(admin.subscriptions, function(filter, name) {
+        return Meteor.subscribe('publish', name, filter);
+      });
+    }
   },
   data: function() {
     var params = this.params,
         collection = Mongo.Collection.get(params.name),
-        cursor = collection.find(params.query, { sort: collection._admin.sort }),
-        pagination = new Pagination(cursor, collection._admin.list_per_page);
-    return {
-      params: function() {
-        return params;
-      },
-      admin: function() {
-        return collection._admin;
-      },
-      doc: function() {
-        return collection.findOne(params._id);
-      },
-      pagination: function() {
-        return pagination;
-      },
-      collection: function() {
-        return pagination.page(params.page);
-      }
-    };
+        cursor, pagination;
+    if (collection) {
+      cursor = collection.find(params.query, { sort: collection._admin.sort });
+      pagination = new Pagination(cursor, collection._admin.list_per_page);
+      return {
+        params: function() {
+          return params;
+        },
+        admin: function() {
+          return collection._admin;
+        },
+        doc: function() {
+          return collection.findOne(params._id);
+        },
+        pagination: function() {
+          return pagination;
+        },
+        collection: function() {
+          return pagination.page(params.page);
+        }
+      };
+    }
   },
   onBeforeAction: function() {
     if (Roles.userIsInRole(Meteor.userId(), ['admin'])) {

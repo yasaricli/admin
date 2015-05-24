@@ -1,3 +1,8 @@
+// ACCOUNTSTEMPLATES.CONFIGURES
+AccountsTemplates.configure({
+  enablePasswordChange: true
+});
+
 // DASHBOARD ROUTE
 Router.route('/admin', _.extend({
   name: 'AdminDashboard',
@@ -17,3 +22,10 @@ Router.route('/admin/:name/insert', _.extend({ name: 'AdminCollectionInsert' }, 
 
 // UPDATE ROUTE
 Router.route('/admin/:name/update/:_id', _.extend({ name: 'AdminCollectionUpdate' }, IronRouterAdmin));
+
+// CHANGE PASSWORD ROUTE OVERRIDE
+AccountsTemplates.configureRoute('changePwd', {
+  layoutTemplate: 'adminLayout',
+  path: '/admin-change-password',
+  redirect: '/admin'
+});
