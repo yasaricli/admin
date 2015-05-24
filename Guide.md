@@ -51,6 +51,7 @@ ATTACH_ADMIN_OPTIONS = {
 
   sort: {},
   list_display: [],
+  exclude: [],
   subscriptions: {},
   verbose_name: null,
 
