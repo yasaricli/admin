@@ -47,7 +47,7 @@ In this example we'll omit the admin provide an options
 object. The options object will explain each of the possible options.
 
 ```javascript
-ATTACH_ADMIN_OPTIONS = {
+OPTIONS = {
 
   sort: {},
   list_display: [],
@@ -63,10 +63,6 @@ ATTACH_ADMIN_OPTIONS = {
   role: 'admin',
   permit: ['insert', 'update', 'remove']
   
-};
-
-OPTIONS = {
-  title: 'Meteor Admin'
 };
 ```
 
