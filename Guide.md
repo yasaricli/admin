@@ -69,3 +69,21 @@ OPTIONS = {
   title: 'Meteor Admin'
 };
 ```
+
+### OPTIONS.sort
+Set sort to specify how lists of objects should be ordered in the admin views. 
+
+### OPTIONS.list_display
+Set list_display to control which fields are displayed on the change list page of the admin.
+
+### OPTIONS.exclude
+This attribute, if given, should be a list of field names to exclude from the form.
+
+### OPTIONS.subscriptions 
+Set subscriptions Meteor publish Collections.
+
+### OPTIONS.verbose_name
+An override to the verbose_name found in the schema's inner Meta class.
+
+### OPTIONS.list_per_page
+Set list_per_page to control how many items appear on each paginated admin change list page. By default, this is set to 10.
