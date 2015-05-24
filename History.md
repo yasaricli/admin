@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.9_1
+* if the `list_display` then show the `length` of `array`.
+
 ### 0.0.9 
 * Change admin `password`
 * `exclude` This attribute, if given, should be a list of field names to exclude from the form.
