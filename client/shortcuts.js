@@ -20,7 +20,7 @@ HELPERS = {
 
   getVal: function(doc) {
     var val = doc[this.key];
-    return this.type == 'Array' ? val.length : val;
+    return this.type == 'Array' ? (val ? val.length : 0) : val;
   },
 
   isBoolean: function() {

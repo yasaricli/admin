@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.9_2
+* getValue type array length fixed.
+
 ### 0.0.9_1
 * if the `list_display` then show the `length` of `array`.
 
