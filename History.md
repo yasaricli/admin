@@ -1,4 +1,4 @@
-### NEXT `0.0.9`
+### NEXT `0.1.0`
 
 * Search collection
 * Filter
