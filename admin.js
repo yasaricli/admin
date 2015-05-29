@@ -115,17 +115,17 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   this._admin.subscriptions[this._name] = {};
 
   // array of change to object types.
-  this._admin.sort = cleanSort(_admin.sort);
+  this._admin.setOption('sort', _admin.getOption('sort'));
 
   // Default collection self name.
-  this._admin._name = this._name;
+  this._admin.setOption('_name', this._name);
 
   // We exclude the default fields. And we are creating a clean object.
-  this._admin.list_display = _.pick(schema._schema, _admin.list_display);
+  this._admin.setOption('list_display', _.pick(schema._schema, _admin.getOption('list_display')));
 
   // if verbose_name null then set to this collection name.
-  if (!this._admin.verbose_name) {
-    this._admin.verbose_name = this._name;
+  if (!this._admin.getOption('verbose_name')) {
+    this._admin.setOption('verbose_name', this._name);
   }
 
   this._admin.fields = _.map(_admin.list_display, function(doc, key) {
@@ -137,8 +137,8 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   isServer(function() {
 
     // If we do, we find and set security roles.
-    if (_admin.security) {
-      this.permit(_admin.permit).ifHasRole(_admin.role).apply();
+    if (_admin.getOption('security')) {
+      this.permit(_admin.getOption('permit')).ifHasRole(_admin.getOption('role')).apply();
     }
   }, this);
 };

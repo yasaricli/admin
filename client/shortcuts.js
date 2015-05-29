@@ -35,6 +35,10 @@ HELPERS = {
     return a == b;
   },
 
+  contains: function(list, key) {
+    return _.contains(list, key);
+  },
+
   notContains: function(list, key) {
     return !_.contains(list, key);
   },

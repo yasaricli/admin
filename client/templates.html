@@ -62,9 +62,14 @@
   </div>
   <table class="admin-list-table">
     <thead>
-      <tr>
+      <tr class="admin-list-fields">
         {{# each admin.fields }}
-          <th><span>{{ name }}</span></th>
+          <th class="admin-filter {{# if sortContains ../admin.sort }}admin-filter-active{{/if}}">
+            <span>{{ name }}</span>
+            {{# if sortContains ../admin.sort }}
+              <i class="fa fa-times-circle-o admin-filter-clear"></i>
+            {{/if}}
+          </th>
         {{/each}}
       </tr>
     </thead>

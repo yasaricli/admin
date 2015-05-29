@@ -1,5 +1,9 @@
 Template.adminHeader.helpers({});
-Template.adminCollection.helpers({});
+Template.adminCollection.helpers({
+  sortContains: function(list) {
+    return _.contains(list, '-' + this.key) || _.contains(list, this.key);
+  }
+});
 
 Template.adminDashboard.helpers({
   count: function(filter) {

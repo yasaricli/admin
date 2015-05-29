@@ -57,8 +57,10 @@ body { padding:0px; margin:0px; }
 #AdminLayout table { border-collapse: collapse; border-spacing: 0; }
 #AdminLayout .admin-list-table { margin: 10px auto; font-size: 1.2em; margin-bottom: 15px; width:100%; }
 #AdminLayout .admin-list-table thead { cursor: pointer; background: #333; }
-#AdminLayout .admin-list-table thead tr th { font-weight: bold; padding: 12px 30px; padding-left: 42px; }
-#AdminLayout .admin-list-table thead tr th:hover { background-color:#000; }
+#AdminLayout .admin-list-table thead tr th { font-weight: bold; padding: 12px 30px; padding-left: 42px; position:relative; }
+#AdminLayout .admin-list-table thead tr th:hover, #AdminLayout .admin-list-table .admin-filter-active { background-color:#000; }
+#AdminLayout .admin-list-table .admin-filter-clear { color:#f4f379; position:absolute; right:10px; top:15px; }
+#AdminLayout .admin-list-table .admin-filter-clear:hover { color:#DDDC1B; }
 #AdminLayout .admin-list-table thead tr th span { padding-right: 20px; background-repeat: no-repeat; background-position: 100% 100%; color:#fff; }
 #AdminLayout .admin-list-table thead tr th.headerSortUp,
 #AdminLayout .admin-list-table thead tr th.headerSortDown { background: #acc8dd; }
