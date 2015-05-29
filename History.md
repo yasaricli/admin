@@ -1,7 +1,9 @@
 ### NEXT `0.1.0`
 
-* Search collection
-* Filter
+
+### 0.1.0
+* `Search` Collection Page
+* `Filter` List
 
 ### 0.0.9_3
 * The page can not be selected if no default page. #1 fixed
