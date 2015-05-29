@@ -1,4 +1,4 @@
-### NEXT `0.1.0`
+### NEXT
 * `Search` Collection Page
 
 ### 0.1.0
