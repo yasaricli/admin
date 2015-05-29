@@ -1,9 +1,10 @@
 ### NEXT `0.1.0`
-
+* `Search` Collection Page
 
 ### 0.1.0
-* `Search` Collection Page
-* `Filter` List
+* `Filter` Clicked to apply sort in the list page.
+* new `Tracker.Dependency` Collection _admin property.
+* `setOption(<option>, value)`, `getOption(<option>)` It added **features** and completely **reactive!**
 
 ### 0.0.9_3
 * The page can not be selected if no default page. #1 fixed
