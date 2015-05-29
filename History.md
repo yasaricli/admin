@@ -1,6 +1,10 @@
 ### NEXT
 * `Search` Collection Page
 
+### 0.1.0_1
+* `Pagination` `currentPage` and `totalPage` fixed
+
+
 ### 0.1.0
 * `Filter` Clicked to apply sort in the list page.
 * new `Tracker.Dependency` Collection _admin property.
@@ -56,7 +60,7 @@
 * `loadingTemplate` fixed.
 * `adminSignInForm` Auto Focus
 
-### 0.0.4 
+### 0.0.4
 * Dashboard display
 * Pages total collection count
 * **/admin** `adminSignInForm` login admin form
