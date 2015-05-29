@@ -83,7 +83,7 @@ body { padding:0px; margin:0px; }
 #AdminLayout .adminRemoveButton:hover { background-color:rgb(129, 5, 5); }
 
 #AdminPagination { list-style:none; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px!important; }
-#AdminPagination li { float:left; }
+#AdminPagination li { float:left; margin-bottom:5px; }
 #AdminPagination li.count { padding: 15px; color: #ccc; }
 #AdminPagination li a { display:block; background-color:#333; color:white; text-decoration:none; padding:15px; margin-right:2px; }
 #AdminPagination li a:hover, #AdminPagination li a.current { background-color:#000; }

@@ -101,7 +101,7 @@ IronRouterAdmin = {
           return pagination;
         },
         collection: function() {
-          return pagination.page(params.page);
+          return pagination.page(params.page > pagination.totalPages() ? pagination.totalPages() : params.page);
         }
       };
     }
