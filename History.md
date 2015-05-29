@@ -3,6 +3,9 @@
 * Search collection
 * Filter
 
+### 0.0.9_3
+* The page can not be selected if no default page. #1 fixed
+
 ### 0.0.9_2
 * getValue type array length fixed.
 

@@ -125,7 +125,7 @@
     <ul id="AdminPagination" class="admin-cf">
       {{# each pages }}
         <li>
-          <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if is page ../params.page }}current{{/if}}">
+          <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if is page ../pagination.currentPage }}current{{/if}}">
             {{ page }}
           </a>
         </li>
