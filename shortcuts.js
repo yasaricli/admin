@@ -1,3 +1,13 @@
+// Callback function. True if running in server environment.
+isServer = function(callback, $this) {
+  return Meteor.isServer && callback.call($this ? $this : this);
+};
+
+// Callback Function. True if running in client environment.
+isClient = function(callback, $this) {
+  return Meteor.isClient && callback.call($this ? $this : this);
+};
+
 // Returned Collections instance _admin.
 getAllCollections = function() {
   return _.filter(Mongo.Collection.getAll(), function(doc) {
@@ -75,8 +85,8 @@ IronRouterAdmin = {
         collection = Mongo.Collection.get(params.name),
         cursor, pagination;
     if (collection) {
-      cursor = collection.find(params.query, { sort: collection._admin.sort });
-      pagination = new Pagination(cursor, collection._admin.list_per_page);
+      cursor = collection.find(params.query, { sort: collection._admin.getOption('sort') });
+      pagination = new Pagination(cursor, collection._admin.getOption('list_per_page'));
       return {
         params: function() {
           return params;

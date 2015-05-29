@@ -1,41 +1,62 @@
 var AD, OPTIONS;
 
+/*
+ * The default object will be formed for each collection.
+ * After the object consists of elements changed or deleted.
+ * */
 OPTIONS = function() {
-    this.sort = {};
-    this.list_display = [];
-    this.exclude = [];
-    this.subscriptions = {};
-    this.verbose_name = null;
+  /*
+   * A Dependency represents an atomic unit of reactive data that a
+   * computation might depend on. Reactive data sources such as Session or
+   * Minimongo internally create different Dependency objects for different
+   * pieces of data, each of which may be depended on by multiple computations.
+   * When the data changes, the computations are invalidated.
+   * */
+  var dep = new Tracker.Dependency();
 
-    // Pagination
-    this.list_per_page = 10;
+  this.sort = {};
+  this.list_display = [];
+  this.exclude = [];
+  this.subscriptions = {};
+  this.verbose_name = null;
 
-    // security
-    this.security = false;
-    this.role = 'admin';
-    this.permit = ['insert', 'update', 'remove'];
+  // Pagination
+  this.list_per_page = 10;
+
+  // security
+  this.security = false;
+  this.role = 'admin';
+  this.permit = ['insert', 'update', 'remove'];
+
+
+  /*
+   * Options are supposed to bring reactive reach to all the features.
+   * Property getOption if we take the method everything is reactive.
+   * */
+  this.getOption = function(prop) {
+    dep.depend();
+    return this[prop];
+  };
+
+  /*
+   * If we want to change the template changes we need to do it that way,
+   * If not reactive.
+   * */
+  this.setOption = function(prop, value) {
+    this[prop] = value;
+    dep.changed();
+  };
 };
 
+/*
+ * And subsequent management of all settings to change to the
+ * object manager that all everything configured.
+ * */
 AD = function Admin() {
   var self = this;
 
   // default false
   this._initialized = false;
-
-  this.ATTACH_ADMIN_OPTIONS = {
-    sort: {},
-    list_display: [],
-    subscriptions: {},
-    verbose_name: null,
-
-    // Pagination
-    list_per_page: 10,
-
-    // security
-    security: false,
-    role: 'admin',
-    permit: ['insert', 'update', 'remove']
-  };
 
   this.OPTIONS = {
     title: 'Meteor Admin'
@@ -51,28 +72,20 @@ AD = function Admin() {
     this.OPTIONS = _.defaults(config, this.OPTIONS);
   };
 
-  this.isServer = function(callback) {
-    return Meteor.isServer && callback.call(this);
-  };
-
-  this.isClient = function(callback) {
-    return Meteor.isClient && callback.call(this);
-  };
-
   this._init = function() {
     if (this._initialized) return;
 
     // client side
-    this.isClient(function() {
+    isClient(function() {
 
       // Register Helpers
       _.each(this.HELPERS, function(fn, name) {
         Template.registerHelper(name, fn);
       });
-    });
+    }, this);
 
     // server side
-    this.isServer(function() {
+    isServer(function() {
 
     });
 
@@ -121,11 +134,11 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   });
 
   // Our code to run the server-side
-  if (Meteor.isServer) {
+  isServer(function() {
 
     // If we do, we find and set security roles.
     if (_admin.security) {
       this.permit(_admin.permit).ifHasRole(_admin.role).apply();
     }
-  }
+  }, this);
 };
