@@ -64,9 +64,9 @@
     <thead>
       <tr class="admin-list-fields">
         {{# each admin.fields }}
-          <th class="admin-filter {{# if sortContains ../admin.sort }}admin-filter-active{{/if}}">
+          <th class="admin-filter {{# if has ../admin.sort key }}admin-filter-active{{/if}}">
             <span>{{ name }}</span>
-            {{# if sortContains ../admin.sort }}
+            {{# if has ../admin.sort key }}
               <i class="fa fa-times-circle-o admin-filter-clear"></i>
             {{/if}}
           </th>

@@ -39,6 +39,10 @@ HELPERS = {
     return _.contains(list, key);
   },
 
+  has: function(obj, key) {
+    return _.has(obj, key);
+  },
+
   notContains: function(list, key) {
     return !_.contains(list, key);
   },

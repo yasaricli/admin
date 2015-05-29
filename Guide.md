@@ -35,7 +35,7 @@ Books.attachSchema(new SimpleSchema({
 Books.attachAdmin({
     name: 'Books',
     list_display: ['title', 'author', 'copies'],
-    sort: ['-copies'],
+    sort: { 'copies': -1 },
     security: true,
     list_per_page: 5,
     verbose_name: 'Book',

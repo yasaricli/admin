@@ -38,7 +38,7 @@ Posts.helpers({
 Posts.attachAdmin({
   name: 'Posts',
   list_display: ['title', 'active'],
-  sort: ['-createdAt'],
+  sort: { createdAt: -1 },
   security: true,
   list_per_page: 5,
   verbose_name: 'Post',

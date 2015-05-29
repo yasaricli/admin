@@ -8,7 +8,7 @@ Tags.attachSchema(new SimpleSchema({
 Tags.attachAdmin({
     name: 'Tags',
     list_display: ['title'],
-    sort: ['-createdAt'],
+    sort: { createdAt: -1 },
     security: true,
     list_per_page: 10,
     verbose_name: 'Tag'

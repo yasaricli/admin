@@ -1,17 +1,13 @@
 Template.adminCollection.events({
   'click .admin-list-fields .admin-filter': function(event, t) {
     var admin = t.data.admin(),
-        sortKey = '-' + this.key; // mapper { sort.key: (1 or -1) }
+        sort = { };
 
-    // contains search sort key
-    if (_.contains(admin.getOption('sort'), this.key)) {
+    // set sorts may be specified using your choice of several syntaxes
+    sort[this.key] = admin.getOption('sort', this.key) == 1 ? -1 : 1;
 
-      // set sortKey
-      return admin.setOption('sort', [sortKey]);
-    }
-
-    // set default sort
-    return admin.setOption('sort', [this.key]);
+    // set Sort option
+    return admin.setOption('sort', sort);
   },
 
   /*
@@ -19,8 +15,7 @@ Template.adminCollection.events({
    * */
   'click .admin-filter-clear': function(event, t) {
     event.stopPropagation();
-    // set clear sort options.
-    t.data.admin().setOption('sort', []);
+    t.data.admin().resetOption('sort');
   }
 });
 

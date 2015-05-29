@@ -2,7 +2,9 @@
 * `Search` Collection Page
 
 ### 0.1.0_1
+* `Sort` array types deprecated change to Object.
 * `Pagination` `currentPage` and `totalPage` fixed
+* `resetOption` new property.
 
 
 ### 0.1.0

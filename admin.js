@@ -4,7 +4,7 @@ var AD, OPTIONS;
  * The default object will be formed for each collection.
  * After the object consists of elements changed or deleted.
  * */
-OPTIONS = function() {
+OPTIONS = function(options) {
   /*
    * A Dependency represents an atomic unit of reactive data that a
    * computation might depend on. Reactive data sources such as Session or
@@ -28,24 +28,37 @@ OPTIONS = function() {
   this.role = 'admin';
   this.permit = ['insert', 'update', 'remove'];
 
-
   /*
    * Options are supposed to bring reactive reach to all the features.
    * Property getOption if we take the method everything is reactive.
    * */
-  this.getOption = function(prop) {
+  this.getOption = function(key, value) {
     dep.depend();
-    return this[prop];
+    return value ? this[key][value] : this[key];
   };
 
   /*
    * If we want to change the template changes we need to do it that way,
    * If not reactive.
    * */
-  this.setOption = function(prop, value) {
-    this[prop] = value;
+  this.setOption = function(key, value) {
+    this[key] = value;
     dep.changed();
   };
+
+  /*
+   * It adds the object to the desired default option.
+   * */
+  this.resetOption = function(key) {
+    this[key] = this.originalOptions[key];
+    dep.changed();
+  };
+
+  // Extend options instance.
+  _.extend(this, options);
+
+  // Original Instance
+  this.originalOptions = options;
 };
 
 /*
@@ -109,7 +122,7 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
   var schema = this.simpleSchema();
 
   // Let's add a collection of admin features.
-  this._admin = _admin = _.extend(new OPTIONS(), options);
+  this._admin = _admin = new OPTIONS(options);
 
   // adding the default subscriber will deliver to subscribe.
   this._admin.subscriptions[this._name] = {};

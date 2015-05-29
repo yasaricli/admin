@@ -22,15 +22,6 @@ getAllSubscriptions = function() {
   });
 };
 
-cleanSort = function(sort) {
-  var out = {};
-  _.forEach(sort, function(name) {
-    var clean = name.replace('-', '');
-    out[clean] = name[0] == '-' ? -1 : 0;
-  });
-  return out;
-};
-
 getAdminCollection = function(name) {
   var coll = Mongo.Collection.get(name);
   if (coll && _.has(coll, '_admin')) {
