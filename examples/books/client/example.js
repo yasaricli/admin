@@ -1,5 +1,5 @@
 Admin.configure({
-  title: 'Example Admin'
+  title: 'Books Admin'
 });
 
 Router.route('/', {
