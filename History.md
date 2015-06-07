@@ -1,7 +1,7 @@
 ### NEXT
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
-* list page all remove or select and remove checkbox.
+* list page all remove or `select remove checkbox`.
 
 ### 0.1.0_1
 * `Sort` array types deprecated change to Object.
