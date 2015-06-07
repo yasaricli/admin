@@ -1,29 +1,36 @@
 ### NEXT
+
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 * list page all remove or `select remove checkbox`.
 
 ### 0.1.0_1
+
 * `Sort` array types deprecated change to Object.
 * `Pagination` `currentPage` and `totalPage` fixed
 * `resetOption` new property.
 
 
 ### 0.1.0
+
 * `Filter` Clicked to apply sort in the list page.
 * new `Tracker.Dependency` Collection _admin property.
 * `setOption(<option>, value)`, `getOption(<option>)` It added **features** and completely **reactive!**
 
 ### 0.0.9_3
+
 * The page can not be selected if no default page. #1 fixed
 
 ### 0.0.9_2
+
 * getValue type array length fixed.
 
 ### 0.0.9_1
+
 * if the `list_display` then show the `length` of `array`.
 
 ### 0.0.9 
+
 * Change admin `password`
 * `exclude` This attribute, if given, should be a list of field names to exclude from the form.
 * `AdminLayout` css color changed
@@ -32,10 +39,12 @@
 * Examples add `blog` application
 
 ### 0.0.8 
+
 * added admin options `verbose_name`
 * removed `adminButtons` template and `helpers`.
 
 ### 0.0.7
+
 * added `aldeed:delete-button` package and update buttons.
 * list table change font size `14px`.
 * example `list_per_page` change to `4`.
@@ -44,9 +53,11 @@
 * add Meteor-provided package to `tracker`
 
 ### 0.0.6_1
+
 * `Admin.ATTACH_ADMIN_OPTIONS` clone bugfix
 
 ### 0.0.6
+
 * new `Admin` Object
 * `Admin.configure(<options>)` method added.
 * `adminOptions` Template tag added.
@@ -54,6 +65,7 @@
 * Export `Admin` and `SimpleSchema` Object
 
 ### 0.0.5
+
 * `attachAdmin` method refactor.
 * DERECATED `new Admin({})`
 * A new `attachAdmin` object `Collection.attachAdmin(<options>)` is updated.
@@ -61,10 +73,12 @@
 * example application updated deploy `metadmin.meteor.com`
 
 ### 0.0.4_1
+
 * `loadingTemplate` fixed.
 * `adminSignInForm` Auto Focus
 
 ### 0.0.4
+
 * Dashboard display
 * Pages total collection count
 * **/admin** `adminSignInForm` login admin form
@@ -73,17 +87,21 @@
 * Header admin email click to logout.
 
 ### 0.0.3
+
 * removed `createAdminUser` and `defineClient` methods
 * removed layout template `adminLayoutSafe`
 * schema `_.omit` change to `_.pick` `list_display`
 
 ### 0.0.2_1
+
 * Pagination `totalPages` perPage fixed.
 
 ### 0.0.2
+
 * Dashboard `allSubscriptions` fixed.
 
 ### 0.0.1
+
 * **İnsert**, **Update**, **Remove** Docs.
 * Pagination
 * Subscriptions
