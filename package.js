@@ -43,7 +43,7 @@ Package.onUse(function(api) {
     // Third-party package dependencies
     api.use([
       'iron:router@1.0.7',
-      'zimme:iron-router-active@1.0.4',
+      'zimme:active-route@2.1.0',
       'fortawesome:fontawesome@4.3.0',
       'dburles:mongo-collection-instances@0.3.3',
       'aldeed:collection2@2.3.3',

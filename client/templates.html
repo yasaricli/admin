@@ -15,7 +15,7 @@
 
 <template name="adminHeader">
   <div id="AdminSiteName">
-    <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActivePath regex='admin$' }}">{{ adminOptions.title }}</a>
+    <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActiveRoute name='AdminDashboard' }}">{{ adminOptions.title }}</a>
   </div>
   {{#if isInRole 'admin' }}
     <ul id="AdminNav" class="admin-cf">
