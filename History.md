@@ -3,6 +3,7 @@
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 * list page all remove or `select remove checkbox`.
+* Package rename `(zimme:active-route)`
 
 ## 0.1.0_1
 
