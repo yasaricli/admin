@@ -53,7 +53,8 @@ Package.onUse(function(api) {
       'ongoworks:security@1.1.0',
       'idmontie:migrations@1.0.0',
       'useraccounts:core@1.10.0',
-      'useraccounts:unstyled@1.10.0'
+      'useraccounts:unstyled@1.10.0',
+      'yasaricli:kalypto@0.0.4'
     ]);
 
     // Export Admin Object

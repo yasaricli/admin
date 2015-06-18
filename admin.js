@@ -16,6 +16,7 @@ OPTIONS = function(options) {
 
   this.sort = {};
   this.list_display = [];
+  this.list_selectedIds = [];
   this.exclude = [];
   this.subscriptions = {};
   this.verbose_name = null;
@@ -44,6 +45,10 @@ OPTIONS = function(options) {
   this.setOption = function(key, value) {
     this[key] = value;
     dep.changed();
+  };
+
+  this.widthOption = function(callback) {
+    return callback(this, dep);
   };
 
   /*
@@ -123,6 +128,9 @@ Mongo.Collection.prototype.attachAdmin = function attachAdmin(options) {
 
   // Let's add a collection of admin features.
   this._admin = _admin = new OPTIONS(options);
+
+  // Cursor collection this.
+  this._admin.cursor = this;
 
   // adding the default subscriber will deliver to subscribe.
   this._admin.subscriptions[this._name] = {};

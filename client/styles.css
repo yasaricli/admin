@@ -27,6 +27,8 @@ body { padding:0px; margin:0px; }
 #AdminLayout .panel-default .panel-heading { margin:10px 0 10px 0; }
 #AdminLayout .admin-list-table a { text-decoration:none; color:#1793C0; }
 #AdminLayout .admin-list-table a:hover { text-decoration:underline; }
+#AdminLayout .admin-list-select { width:50px; }
+#AdminLayout .admin-list-select a { margin:auto; }
 #AdminLayout input[type='file'] { border:0px; }
 
 /* FORMS STYLES */

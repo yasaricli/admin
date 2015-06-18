@@ -56,6 +56,11 @@
 
 <template name="adminCollection">
   <div id="AdminListOptions" class="admin-cf">
+    <div class="left">
+      {{# if admin.list_selectedIds }}
+        <a href="#" class="admin-button adminRemoveButton">Remove items</a>
+      {{/if}}
+    </div>
     <div class="right">
       <a href="{{ pathFor route='AdminCollectionInsert' name=admin._name }}" class="admin-button">New {{ admin.verbose_name }}</a>
     </div>
@@ -63,6 +68,7 @@
   <table class="admin-list-table">
     <thead>
       <tr class="admin-list-fields">
+        {{# if collection }}<td class="admin-list-select"></td>{{/if}}
         {{# each admin.fields }}
           <th class="admin-filter {{# if has ../admin.sort key }}admin-filter-active{{/if}}">
             <span>{{ name }}</span>
@@ -76,6 +82,9 @@
     <tbody>
       {{# each collection }}
         <tr>
+          <td class="admin-list-select admin-list-select-doc">
+            {{ > kalypto toggleClass='checkbox-green' class='select-doc' doc=this }}
+          </td>
           {{# each setIndex ../admin.fields }}
             <td>
               {{# if isBoolean }}
