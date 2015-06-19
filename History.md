@@ -2,8 +2,14 @@
 
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
-* list page all remove or `select remove checkbox`.
+
+
+
+## 0.2.0
+* list page select  `select remove checkbox doc`.
 * Package rename `(zimme:active-route)`
+* Update packages `iron:router@1.0.9`, `aldeed:autoform@5.3.0`, `useraccounts:core@1.11.1`, `useraccounts:unstyled@1.11.1`
+* onSuccess `edit, insert, remove this.collection._name fixed`.
 
 ## 0.1.0_1
 
