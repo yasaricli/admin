@@ -2,9 +2,8 @@ var root = this, HELPERS;
 
 // METHODS
 root.saveFormHookObject = {
-  onSuccess: function(type, _id, view) {
-    var collection = root[view.data.collection];
-    Router.go('AdminCollection', { name: collection._name });
+  onSuccess: function(type, _id) {
+    Router.go('AdminCollection', { name: this.collection._name });
   }
 };
 

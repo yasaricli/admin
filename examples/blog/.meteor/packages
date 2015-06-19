@@ -7,6 +7,5 @@
 meteor-platform
 insecure
 yasaricli:admin
-donchess:autoform-froala
-iron:router
 dburles:collection-helpers
+iron:router

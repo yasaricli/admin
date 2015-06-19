@@ -112,7 +112,7 @@
   {{# autoForm collection=admin.name id="insertForm" type="insert" }}
     {{# each afFieldNames }}
       {{# if notContains ../admin.exclude this }}
-        {{> afQuickField name=this }}
+        {{> afQuickField }}
       {{/if}}
     {{/each}}
     <button type="submit" class="admin-button mr5 left adminSaveButton">Insert {{ admin.verbose_name }}</button>
@@ -124,7 +124,7 @@
   {{# autoForm collection=admin.name id="insertForm" type="update" doc=doc}}
     {{# each afFieldNames }}
       {{# if notContains ../admin.exclude this }}
-        {{> afQuickField name=this }}
+        {{> afQuickField }}
       {{/if}}
     {{/each }}
     <button type="submit" class="admin-button mr5 left adminSaveButton">Save {{ admin.verbose_name }}</button>

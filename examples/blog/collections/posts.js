@@ -6,10 +6,7 @@ Posts.attachSchema(new SimpleSchema({
   content: {
     type: String,
     autoform: {
-      afFieldInput: {
-        type: 'froala',
-        inlineMode: false
-      }
+      type: 'textarea',
     }
   },
   tagIds: {
