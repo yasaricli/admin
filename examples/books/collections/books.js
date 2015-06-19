@@ -17,6 +17,7 @@ Books.before.insert(function(userId, doc) {
 Books.attachAdmin({
   name: 'Books',
   list_display: ['title', 'author', 'copies'],
+  exclude: ['createdAt'],
   sort: { createdAt: -1 },
   security: true,
   list_per_page: 4,
