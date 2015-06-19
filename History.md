@@ -3,7 +3,9 @@
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 
-
+## 0.2.0_1
+* Document `selectedIds` list `destroy` template fixed.
+* `Exclude` collection fields fixed.
 
 ## 0.2.0
 * list page select  `select remove checkbox doc`.
