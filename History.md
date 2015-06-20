@@ -3,6 +3,22 @@
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 
+## 0.3.0
+* `Admin.createAdmin(<email>, <password>)` command
+* `Admin.setAdminRole(<userId>)` command
+
+  ### Example: 
+    Run the `meteor shell` command and:
+    
+    Set admin role 
+    
+        $ > userId = Users.findOne(); // _id: q32aNMDsNbaS6MhpC
+        $ > Admin.setAdminRole(userId);
+        
+    Create new admin
+    
+        $ > Admin.createAdmin('yasaricli@gmail.com', '1234567');
+        
 ## 0.2.0_1
 * Document `selectedIds` list `destroy` template fixed.
 * `Exclude` collection fields fixed.
