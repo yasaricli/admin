@@ -70,6 +70,6 @@ useraccounts:core@1.11.1
 useraccounts:unstyled@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
-yasaricli:admin@0.2.0
+yasaricli:admin@0.2.0_1
 yasaricli:kalypto@0.0.4
 zimme:active-route@2.1.0

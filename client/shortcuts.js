@@ -73,7 +73,7 @@ HELPERS = {
     },
     password: {
       type: String,
-      min: 6,
+      min: 5,
       label: 'Password',
       autoform: {
         type: 'password'

@@ -90,6 +90,12 @@ AD = function Admin() {
     this.OPTIONS = _.defaults(config, this.OPTIONS);
   };
 
+  this.log = function(log) {
+    console.log('------------------------------------'.grey);
+    console.log('|'.grey, log);
+    console.log('------------------------------------'.grey);
+  };
+
   this._init = function() {
     if (this._initialized) return;
 
@@ -104,8 +110,54 @@ AD = function Admin() {
 
     // server side
     isServer(function() {
+      var self = this;
+      this.roles = ['admin'];
 
-    });
+      /*
+       * Meteor Server side create super user function
+       * */
+      this.createAdmin = function(email, password) {
+        var user = Users.findOne({ 'emails.address': email });
+        if (_.isUndefined(user)) {
+          var userId = Accounts.createUser({ email: email, password: password });
+
+          this.log('User created successfully.'.yellow);
+          this.log('Admin role has been added.'.cyan);
+
+          // add Rure
+          return Roles.addUsersToRoles(userId, this.roles);
+        }
+        return this.log('User already exists '.red,
+          'Add the user using it Admin.setAdminRole(userId) command'.yellow);
+      };
+
+      /*
+       * Meteor users admin role add secure.
+       * */
+      this.setAdminRole = function(userId) {
+        var user = Users.findOne(userId);
+
+        // not defined user
+        if (!user) {
+          return this.log('Role adding users not found.'.red);
+        }
+
+        // add role
+        if (!Roles.userIsInRole(userId, this.roles)) {
+          this.log('The user role added successfully.'.green);
+          return Roles.setUserRoles(userId, this.roles);
+        }
+      };
+
+      /*
+       * Package is installed the default admin is not insert.
+       * */
+      Migrations.add('AdminInitialized', function() {
+
+        // insert default admin
+        self.createAdmin('admin@admin.com', 'admin');
+      });
+    }, this);
 
     // Admin as initialized
     this._initialized = true;
@@ -114,10 +166,8 @@ AD = function Admin() {
 
 Admin = new AD();
 
-// Initialization
-Meteor.startup(function() {
-  Admin._init();
-});
+// INIT ADMIN
+Admin._init(); // Client and Server
 
 /*
  * Mongo.Collection.prototype.attachAdmin

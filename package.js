@@ -1,6 +1,6 @@
 Package.describe({
     name: 'yasaricli:admin',
-    version: '0.2.0_1',
+    version: '0.3.0',
     summary: 'Meteorjs is the basic admin interface.',
     git: 'https://github.com/yasaricli/admin.git',
     documentation: 'README.md'
@@ -26,8 +26,7 @@ Package.onUse(function(api) {
     ], 'client');
 
     api.addFiles([
-      'server/publications.js',
-      'server/migrations.js'
+      'server/publications.js'
     ], 'server');
 
     // Meteor-provided packages
@@ -54,7 +53,8 @@ Package.onUse(function(api) {
       'idmontie:migrations@1.0.0',
       'useraccounts:core@1.11.1',
       'useraccounts:unstyled@1.11.1',
-      'yasaricli:kalypto@0.0.4'
+      'yasaricli:kalypto@0.0.4',
+      'nooitaf:colors@0.0.2'
     ]);
 
     // Export Admin Object
