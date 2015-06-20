@@ -3,6 +3,21 @@
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 
+## 0.4.0
+* Refactoring css and html ids.
+* Admin styles package `yasaricli:admin-styles`
+* Template styles `default(Black)`, `navy`, `blue`, `yellow`.
+* Admin `configure` add to `style:'default'` property.
+  
+  ### Style property
+
+```javascript
+Admin.configure({
+  title: 'Books Admin',
+  style: 'yellow' // default
+});
+```
+
 ## 0.3.0
 * `Admin.createAdmin(<email>, <password>)` command
 * `Admin.setAdminRole(<userId>)` command
