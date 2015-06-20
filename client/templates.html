@@ -1,64 +1,62 @@
 <template name="adminLayout">
-  <div id="AdminLayout">
-    <div id="AdminHeader">
+  <div id="AdminLayout" class="admin-{{ adminOptions.style }}">
+    <div class="admin-header">
       <div class="admin-wrapper">
         {{ > adminHeader }}
       </div>
     </div>
-    <div id="AdminMain">
-      <div class="admin-wrapper mt30">
-        {{ > yield }}
-      </div>
+    <div class="admin-wrapper mt30">
+      {{ > yield }}
     </div>
   </div>
 </template>
 
 <template name="adminHeader">
-  <div id="AdminSiteName">
-    <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActiveRoute name='AdminDashboard' }}">{{ adminOptions.title }}</a>
-  </div>
-  {{#if isInRole 'admin' }}
-    <ul id="AdminNav" class="admin-cf">
+  <ul class="admin-nav admin-cf">
+    <li class="admin-nav-title">
+      <a href="{{ pathFor route='AdminDashboard' }}" class="adminPath {{ isActiveRoute name='AdminDashboard' }}">
+        {{ adminOptions.title }}
+      </a>
+    </li>
+    {{#if isInRole 'admin' }}
       {{# each collections }}
         <li>
           <a href="{{ pathFor route='AdminCollection' }}" class="{{ isActivePath regex=name }}">{{ name }}</a>
         </li>
       {{/each}}
-      <li class="admin">
+      <li class="admin-nav-user">
         <a href="#">
           {{ currentUser.emails.[0].address }}
-          <ul class="adminSettings">
+          <ul>
             <li>
-            <a href="{{ pathFor route='atChangePwd' }}">Change Password</a>
+              <a href="{{ pathFor route='atChangePwd' }}">Change Password</a>
             </li>
             <li>
               <a href="/logout" class="logout">Logout</a>
             </li>
           </ul>
         </a>
-      </li>
-    </ul>
-  {{/if}}
+        </li>
+      {{/if}}
+  </ul>
 </template>
 
 <template name="adminDashboard">
-  <div id="AdminDashboard">
-    <ul id="AdminCollections" class="admin-cf">
-      {{#each collections }}
-        <li>
-          <div class="admin-collection-name">{{ getCollectionAdmin.name }}</div>
-          <div class="admin-collection-count">{{ count }}</div>
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+  <ul class="admin-collection-list admin-cf">
+    {{#each collections }}
+      <li>
+        <div class="admin-collection-name">{{ getCollectionAdmin.name }}</div>
+        <div class="admin-collection-count">{{ count }}</div>
+      </li>
+    {{/each}}
+  </ul>
 </template>
 
 <template name="adminCollection">
   <div id="AdminListOptions" class="admin-cf">
     <div class="left">
       {{# if admin.list_selectedIds }}
-        <a href="#" class="admin-button adminRemoveButton">Remove items</a>
+        <a href="#" class="admin-button admin-remove-button">Remove items</a>
       {{/if}}
     </div>
     <div class="right">
@@ -115,7 +113,7 @@
         {{> afQuickField }}
       {{/if}}
     {{/each}}
-    <button type="submit" class="admin-button mr5 left adminSaveButton">Insert {{ admin.verbose_name }}</button>
+    <button type="submit" class="admin-button mr5 left admin-save-button">Insert {{ admin.verbose_name }}</button>
   {{/autoForm}}
 </template>
 
@@ -127,8 +125,8 @@
         {{> afQuickField }}
       {{/if}}
     {{/each }}
-    <button type="submit" class="admin-button mr5 left adminSaveButton">Save {{ admin.verbose_name }}</button>
-    {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onRemoveSuccess class="admin-button adminRemoveButton mr5 left" }}
+    <button type="submit" class="admin-button mr5 left admin-save-button">Save {{ admin.verbose_name }}</button>
+    {{#quickRemoveButton collection=admin.name _id=doc._id onSuccess=onRemoveSuccess class="admin-button admin-remove-button mr5 left" }}
       Remove {{ admin.verbose_name }}
     {{/quickRemoveButton}}
   {{/autoForm}}
@@ -136,7 +134,7 @@
 
 <template name="adminPagination">
   {{# if collection }}
-    <ul id="AdminPagination" class="admin-cf">
+    <ul class="admin-pagination admin-cf">
       {{# each pages }}
         <li>
           <a href="{{ pathFor route='AdminCollectionPagination' name=../admin._name }}" class="{{# if is page ../pagination.currentPage }}current{{/if}}">

@@ -77,9 +77,14 @@ AD = function Admin() {
   this._initialized = false;
 
   this.OPTIONS = {
-    title: 'Meteor Admin'
+    title: 'Meteor Admin',
+    style: 'default'
   };
 
+  /*
+   * XXX: tracker set get options ???
+   *      and name not special?
+   * */
   this.HELPERS = {
     adminOptions: function() {
       return self.OPTIONS;

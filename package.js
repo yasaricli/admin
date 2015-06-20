@@ -53,8 +53,8 @@ Package.onUse(function(api) {
       'idmontie:migrations@1.0.0',
       'useraccounts:core@1.11.1',
       'useraccounts:unstyled@1.11.1',
-      'yasaricli:kalypto@0.0.4',
-      'nooitaf:colors@0.0.2'
+      'yasaricli:admin-styles@0.0.1',
+      'yasaricli:kalypto@0.0.4'
     ]);
 
     // Export Admin Object

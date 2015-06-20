@@ -1,14 +1,14 @@
 body { padding:0px; margin:0px; }
+
 #AdminLayout { font-family:"Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif; position: absolute; top: 0px; width: 100%; height: 100%; background-color:white; color:#333; }
-#AdminHeader { height:50px; background-color:#333; }
-#AdminMain { }
 
 #AdminLayout ul { list-style:none; padding:0px; margin:0px; }
-#AdminLayout a { color:#333; }
+#AdminLayout a { color:#333; text-decoration:none; }
+#AdminLayout h2,
+#AdminLayout h3 { color:#333; }
 
 #AdminLayout .left { float:left!important; }
 #AdminLayout .right { float:right!important; }
-
 #AdminLayout .mr5 { margin-right:5px; }
 #AdminLayout .mt5 { margin-top:5px!important; }
 #AdminLayout .mt10 { margin-top:10px!important; }
@@ -18,89 +18,3 @@ body { padding:0px; margin:0px; }
 #AdminLayout .yet { color:#ccc; }
 
 #AdminLayout .admin-cf:after{ clear: both; content: "."; display: block; height: 0; visibility: hidden; font-size: 0; }
-
-#AdminLayout h2, #AdminLayout h3 { color:#333; }
-#AdminSiteName a,
-#AdminLayout #AdminNav li a { line-height: 50px; padding:0 10px 0 10px; display:block; }
-
-#AdminLayout .list-group { list-style:none; padding:0px; margin:0px; }
-#AdminLayout .panel-default .panel-heading { margin:10px 0 10px 0; }
-#AdminLayout .admin-list-table a { text-decoration:none; color:#1793C0; }
-#AdminLayout .admin-list-table a:hover { text-decoration:underline; }
-#AdminLayout .admin-list-select { width:50px; }
-#AdminLayout .admin-list-select a { margin:auto; }
-#AdminLayout input[type='file'] { border:0px; }
-
-/* FORMS STYLES */
-#AdminLayout form { }
-#AdminLayout form input,
-#AdminLayout form textarea,
-#AdminLayout form select { border: 1px solid #ccc; outline: none; width:100%; padding:10px; font-size:17px; resize:none; }
-
-#AdminLayout form textarea { min-height:100px; }
-#AdminLayout form label { display:block; margin:10px 0 10px 0; }
-#AdminLayout form input[type='checkbox'] { width:15px; }
-#AdminLayout form .help-block { margin-top: 10px; display: block; color: rgb(173, 55, 55); }
-#AdminLayout form button { margin:20px 0 20px 0; outline:none; }
-
-#AdminLayout .autoform-remove-item { display:none; }
-#AdminLayout .autoform-remove-item,
-#AdminLayout .autoform-add-item { padding:0px; margin:0px; border:0px; background-color:#333; padding:10px; margin-right:10px; }
-
-#AdminNav { list-style:none; padding:0px; margin:0px; }
-#AdminNav > li { float:left; }
-#AdminNav li a, .adminPath { color:white; text-decoration:none; font-size:20px; }
-#AdminNav li a.active, #AdminNav li a:hover, .adminPath:hover, .adminPath.active, .admin-button:hover { background-color:#000; }
-
-#AdminLayout .admin-wrapper { width:980px; margin:auto; }
-#AdminSiteName { float:left; }
-#AdminSiteName a { color:#f4f379; font-size:18px; font-weight: normal; }
-
-#AdminLayout table { border-collapse: collapse; border-spacing: 0; }
-#AdminLayout .admin-list-table { margin: 10px auto; font-size: 1.2em; margin-bottom: 15px; width:100%; }
-#AdminLayout .admin-list-table thead { cursor: pointer; background: #333; }
-#AdminLayout .admin-list-table thead tr th { font-weight: bold; padding: 12px 30px; padding-left: 42px; position:relative; }
-#AdminLayout .admin-list-table thead tr th:hover, #AdminLayout .admin-list-table .admin-filter-active { background-color:#000; }
-#AdminLayout .admin-list-table .admin-filter-clear { color:#f4f379; position:absolute; right:10px; top:15px; }
-#AdminLayout .admin-list-table .admin-filter-clear:hover { color:#DDDC1B; }
-#AdminLayout .admin-list-table thead tr th span { padding-right: 20px; background-repeat: no-repeat; background-position: 100% 100%; color:#fff; }
-#AdminLayout .admin-list-table thead tr th.headerSortUp,
-#AdminLayout .admin-list-table thead tr th.headerSortDown { background: #acc8dd; }
-#AdminLayout .admin-list-table tbody tr { color: #555; font-size:15px; }
-#AdminLayout .admin-list-table tbody tr:hover { background-color:#F9F9F9; }
-#AdminLayout .admin-list-table tbody tr td { text-align: center; padding: 15px 10px; }
-#AdminLayout .admin-list-table tbody tr td.lalign { text-align: left; }
-#AdminLayout #adminLoginRequired { text-align: center; font-size: 30px; font-weight: bold; }
-#AdminLayout .admin-button, .at-btn { background-color:#333; color:#fff; display:block; text-decoration:none; padding:10px; border:0px; font-size:20px; cursor:pointer; }
-#AdminLayout .fa-check-circle { color:#CCC; }
-#AdminLayout .fa-check-circle.true { color:#0BF; }
-
-#AdminLayout .at-error { }
-#AdminLayout .at-error p { margin:0 0 5px 0px; padding:10px; background-color:rgb(126, 3, 3); color:white; }
-
-#AdminLayout #adminWarningPage { background-color: rgb(165, 44, 44); color: white; padding: 25px; font-size: 25px; }
-
-#AdminLayout .adminSaveButton { }
-#AdminLayout .adminRemoveButton { background-color:rgb(144, 24, 24); }
-#AdminLayout .adminRemoveButton:hover { background-color:rgb(129, 5, 5); }
-
-#AdminPagination { list-style:none; border-top:10px solid rgba(204, 204, 204, 0.21); padding-top: 10px!important; }
-#AdminPagination li { float:left; margin-bottom:5px; }
-#AdminPagination li.count { padding: 15px; color: #ccc; }
-#AdminPagination li a { display:block; background-color:#333; color:white; text-decoration:none; padding:15px; margin-right:2px; }
-#AdminPagination li a:hover, #AdminPagination li a.current { background-color:#000; }
-
-#AdminCollections { list-style:none; padding:0px; margin:0px }
-#AdminCollections ul { list-style:none; padding:0px; margin:0px; position:absolute; bottom:5px; left:5px; }
-#AdminCollections li { float:left; background-color:#333; color:white; text-align:center; margin-right:10px; padding:20px 75px 20px 75px; position:relative; }
-#AdminCollections li .admin-collection-name { font-size:25px; }
-#AdminCollections li .admin-collection-count { color:#f4f379; font-weight:bold; font-size:30px; margin-top:10px; }
-
-/* useraccounts */
-#AdminLayout .at-pwd-link, #AdminLayout .at-signup-link { display:none; }
-#AdminLayout .admin { float:right; position:relative; }
-#AdminLayout .admin:hover .adminSettings { display:block; }
-#AdminLayout .admin a { font-size:15px; }
-#AdminLayout .admin .adminSettings { position:absolute; left:0px; display:none; width:100%; }
-#AdminLayout .admin .adminSettings a { background-color:#000; }
-#AdminLayout .admin .adminSettings a:hover { background-color:rgba(0, 0, 0, 0.85); }
