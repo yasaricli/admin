@@ -17,7 +17,8 @@ You can install yasaricli:admin using Meteor's package management system:
 ## Configuring the Admin
 ```javascript
 Admin.configure({
-  title: 'Books Admin'
+  title: 'Books Admin',
+  style: 'default' // blue, navy, yellow
 });
 ```
 ## Attaching a Schema and Admin to a Collection
