@@ -1,11 +1,14 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300|Roboto+Condensed:400,700,300);
 
-body { margin:0px; padding:0px; }
+body { margin:0px; padding:0px; color:#333; }
 ul, li { list-style:none; margin:0px; padding:0px; }
 
 /* fonts */
 .font-oswald { font-family: 'Oswald', sans-serif; }
 .font-roboto { font-family: 'Roboto Condensed', sans-serif; }
+
+.header { }
+.title { text-align:center; font-size:50px; padding:20px; display:block; }
 
 .container { width:1000px; margin:auto; }
 
