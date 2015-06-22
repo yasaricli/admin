@@ -1,6 +1,6 @@
 Admin.configure({
   title: 'Books Admin',
-  style: 'yellow'
+  style: 'default'
 });
 
 Router.route('/', {

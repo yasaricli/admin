@@ -1,0 +1,34 @@
+<head>
+  <title>docs</title>
+</head>
+
+<template name="layout">
+  <div id="Surface" class="font-oswald">
+    <div class="container">
+      {{ > yield }}
+    </div>
+  </div>
+</template>
+
+<template name="index">
+  {{ > styles }}
+</template>
+
+<template name="styles">
+  <ul class="styles">
+    {{# each styles }}
+      <li>
+        <span>{{ name }}</span>
+        <img src="{{ image.url }}">
+      </li>
+    {{/each}}
+  </ul>
+</template>
+
+<template name="loading">
+  loading..
+</template>
+
+<template name="notFound">
+  Not found template.
+</template>

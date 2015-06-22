@@ -1,0 +1,15 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,700,300|Roboto+Condensed:400,700,300);
+
+body { margin:0px; padding:0px; }
+ul, li { list-style:none; margin:0px; padding:0px; }
+
+/* fonts */
+.font-oswald { font-family: 'Oswald', sans-serif; }
+.font-roboto { font-family: 'Roboto Condensed', sans-serif; }
+
+.container { width:1000px; margin:auto; }
+
+.styles { }
+.styles li { cursor:pointer; margin:0 0 10px 0; position:relative; border:10px solid rgba(204, 204, 204, 0.13); overflow:hidden; display: inline-block; }
+.styles li span { display:none; position:absolute; width:100%; height:100%; background-color:rgba(51, 51, 51, 0.7); text-align:center; font-size:50px; color:white; line-height:10; }
+.styles li:hover span { display:block; }
