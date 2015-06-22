@@ -132,8 +132,9 @@ AD = function Admin() {
           // add Rure
           return Roles.addUsersToRoles(userId, this.roles);
         }
-        return this.log('User already exists '.red,
-          'Add the user using it Admin.setAdminRole(userId) command'.yellow);
+
+        this.log('User already exists '.red);
+        this.log('Add the user using it Admin.setAdminRole(userId) command'.yellow);
       };
 
       /*
