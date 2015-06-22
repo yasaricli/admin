@@ -11,6 +11,7 @@ Package.onUse(function(api) {
 
     // Utils and base js
     api.addFiles([
+      'collections.js',
       'shortcuts.js',
       'admin.js'
     ]);
