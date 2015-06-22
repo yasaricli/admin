@@ -3,6 +3,11 @@
 * `Search` Collection Page
 * remove items open to lightbox `Yes` or `No`
 
+## 0.4.0_1 
+* ReferenceError: `Users is not defined` fixed.
+* click `.adminRemoveButton` change to `admin-remove-button` fixed.
+* `#AdminLayout` css class `height:100%` fixed.
+
 ## 0.4.0
 * Refactoring css and html ids.
 * Admin styles package `yasaricli:admin-styles`
