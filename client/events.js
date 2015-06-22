@@ -18,7 +18,7 @@ Template.adminCollection.events({
     t.data.admin().resetOption('sort');
   },
 
-  'click .adminRemoveButton': function(event, t) {
+  'click .admin-remove-button': function(event, t) {
     var admin = this.admin();
 
     // all each ids and remove document
