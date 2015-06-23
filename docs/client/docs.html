@@ -46,8 +46,74 @@
   </ul>
 </template>
 
-<template name="tutorial"></template>
-<template name="docs"></template>
+<template name="tutorial">
+{{#markdown}}
+# Creating meteor app
+To create a Meteor app, open your terminal and type:
+```bash
+meteor create books
+```
+To run the newly created app:
+```bash
+cd books
+meteor
+```
+Open your web browser and go to http://localhost:3000 to see the app running and login default admin user *admin@admin.com* password *admin*.
+## Quick install admin
+```bash
+meteor add yasaricli:admin
+```
+then go to /admin for the login page.
+# Config
+```javascript
+Admin.configure({
+  title: 'Books Admin',
+  style: 'default'
+});
+```
+## Define your data models
+```javascript
+Books = new Mongo.Collection("books");
+
+Books.attachSchema(new SimpleSchema({
+  title: { type: String, label: "Title", max: 200 },
+  author: { type: String, label: "Author" },
+  copies: { type: Number, label: "Number of copies", min: 0 },
+  summary: { type: String, label: "Brief summary", optional: true, autoform: { type: 'textarea' }}
+}));
+
+Books.attachAdmin({
+  name: 'Books',
+  list_display: ['title', 'author', 'copies'],
+  sort: { 'copies': -1 },
+  security: true,
+  list_per_page: 5,
+  verbose_name: 'Book',
+});
+```
+{{/markdown}}
+</template>
+<template name="docs">
+{{# markdown }}
+# OPTIONS.sort
+Set sort to specify how lists of objects should be ordered in the admin views. 
+
+# OPTIONS.list_display
+Set list_display to control which fields are displayed on the change list page of the admin.
+
+# OPTIONS.exclude
+This attribute, if given, should be a list of field names to exclude from the form.
+
+# OPTIONS.subscriptions 
+Set subscriptions Meteor publish Collections.
+
+# OPTIONS.verbose_name
+An override to the verbose_name found in the schema's inner Meta class.
+
+# OPTIONS.list_per_page
+Set list_per_page to control how many items appear on each paginated admin change list page. By default, this is set to 10.
+{{/markdown}}
+</template>
 
 <template name="loading">
   loading..
