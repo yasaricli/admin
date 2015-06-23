@@ -8,11 +8,16 @@ ul, li { list-style:none; margin:0px; padding:0px; }
 .font-roboto { font-family: 'Roboto Condensed', sans-serif; }
 
 .header { }
-.title { text-align:center; font-size:50px; padding:20px; display:block; }
+.title { width:200px; margin:auto; font-size:50px; padding:20px; display:block; }
 
 .container { width:1000px; margin:auto; }
 
-.styles { }
+.styles { margin-bottom:20px; }
 .styles li { cursor:pointer; margin:0 0 10px 0; position:relative; border:10px solid rgba(204, 204, 204, 0.13); overflow:hidden; display: inline-block; }
 .styles li span { display:none; position:absolute; width:100%; height:100%; background-color:rgba(51, 51, 51, 0.7); text-align:center; font-size:50px; color:white; line-height:10; }
 .styles li:hover span { display:block; }
+
+.header-nav { overflow:hidden; width:300px; margin:auto; }
+.header-nav li { float:left; margin-right:10px; }
+.header-nav li a { color:#333; text-decoration:none; font-weight:bold; font-size:30px; padding:20px; }
+.header-nav li a:hover, .header-nav li a.active { background-color:#333; color:white; }

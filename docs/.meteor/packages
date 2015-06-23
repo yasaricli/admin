@@ -13,3 +13,4 @@ cfs:gridfs
 yogiben:autoform-file
 reywood:publish-composite
 dburles:collection-helpers
+zimme:active-route

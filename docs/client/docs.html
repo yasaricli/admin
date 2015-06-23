@@ -7,8 +7,11 @@
     <div class="header">
       <div class="container">
         <div class="title">
-          <img src="/images/meteor-logo.png">
+          <a href="{{ pathFor route='Index' }}">
+            <img src="/images/meteor-logo.png">
+          </a>
         </div>
+        {{ > nav }}
       </div>
     </div>
     <div class="container">
@@ -21,6 +24,17 @@
   {{ > styles }}
 </template>
 
+<template name="nav">
+  <ul class="header-nav">
+    <li>
+      <a href="{{ pathFor route='Tutorial' }}" class="{{ isActiveRoute 'Tutorial' }}">TUTORIAL</a>
+    </li>
+    <li>
+      <a href="{{ pathFor route='Docs' }}" class="{{ isActiveRoute 'Docs' }}">DOCS</a>
+    </li>
+  </ul>
+</template>
+
 <template name="styles">
   <ul class="styles">
     {{# each styles }}
@@ -31,6 +45,9 @@
     {{/each}}
   </ul>
 </template>
+
+<template name="tutorial"></template>
+<template name="docs"></template>
 
 <template name="loading">
   loading..
