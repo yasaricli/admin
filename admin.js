@@ -161,7 +161,7 @@ AD = function Admin() {
       Migrations.add('AdminInitialized', function() {
 
         // insert default admin
-        self.createAdmin('admin@admin.com', 'admin');
+        self.createAdmin('admin@admin.com', 'password');
       });
     }, this);
 

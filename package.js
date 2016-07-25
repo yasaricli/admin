@@ -36,6 +36,7 @@ Package.onUse(function(api) {
       'accounts-password',
       'mongo',
       'underscore',
+      'session',
       'templating',
       'tracker'
     ], ['client', 'server']);
